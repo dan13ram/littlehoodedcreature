@@ -1,0 +1,272 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: lightgrey;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+}
+
+a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+// Common Components
+
+.bio {
+    display: flex;
+    flex-flow: row wrap;
+    .avatar {
+        border-radius: 50%;
+    }
+    .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0.5rem;
+        a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: black;
+            &:hover {
+                color: grey;
+            }
+        }
+    }
+}
+
+// Layout
+
+.layout {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100vw;
+        margin-top: 3rem;
+        padding: 1rem;
+    }
+    .footer {
+        align-self: flex-end;
+        width: 100vw;
+        display: flex;
+        height: 3rem;
+        background: black;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        a {
+            padding: 0.5rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: white;
+            &:hover {
+                color: grey;
+            }
+        }
+    }
+}
+.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 10;
+    width: 100vw;
+    height: 3rem;
+    background: black;
+    color: white;
+    .navLogo {
+        height: 3rem;
+        width: 7rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: white;
+        &:hover {
+            color: grey;
+        }
+    }
+    .navToggle {
+        display: none;
+    }
+    .navMenu {
+        .navItem {
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: white;
+            &:hover {
+                color: grey;
+            }
+        }
+    }
+}
+
+@media (max-width: 30rem) {
+    .navBar {
+        transition: height 0.25s ease-out;
+        .navMenu {
+            transition: opacity 0.25s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .navToggle {
+            display: block;
+            position: absolute;
+            right: 1rem;
+            top: 0.5rem;
+            padding: 0;
+            margin: 0;
+            width: 20px;
+            &::after,
+            &::before,
+            div {
+                background-color: #fff;
+                border-radius: 2px;
+                content: "";
+                display: block;
+                height: 2px;
+                margin: 6px 0;
+            transition: all 0.5s ease-in-out;
+            }
+        }
+        &.open {
+            transition: height 0.5s ease-in-out;
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            .navToggle {
+                transition: all 0.5s ease-in-out;
+                &::before {
+                    transform: translateY(8px) rotate(135deg);
+                }
+
+                &::after {
+                    transform: translateY(-8px) rotate(-135deg);
+                }
+
+                div {
+                    transform: scale(0);
+                }
+            }
+            .navMenu {
+                height: 100vh;
+                margin-top: 3rem;
+                transition: opacity 0.5s;
+                opacity: 1;
+                visibility: visible;
+                width: 100%;
+                border-style: solid none none none;
+                border-width: 1px;
+                border-color: white;
+                align-items: stretch;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                .navItem {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    height: 4rem;
+                    border-style: none none solid none;
+                    border-width: 1px;
+                    border-color: grey;
+                    &:hover {
+                        background: white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// AboutPage
+
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40rem;
+    max-width: 95vw;
+    .avatar {
+        border-radius: 50%;
+    }
+    .follow-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        a {
+            text-decoration: none;
+            font-size: 2rem;
+            color: black;
+            &:hover {
+                color: grey;
+            }
+        }
+    }
+}
+
+// BlogPage
+
+.blogPage {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: 70rem;
+    max-width: 95vw;
+    .tile {
+        display: flex;
+        flex-direction: column;
+        width: 30rem;
+        max-width: 90vw;
+        min-height: 10rem;
+        border-radius: 10px;
+        border-style: solid;
+        border-color: grey;
+        margin: 1rem;
+        padding: 1rem;
+        cursor: pointer;
+        a {
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: black;
+        }
+
+        &:hover {
+            background: grey;
+        }
+    }
+}
