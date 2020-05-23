@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
+import logo from "../../static/img/om-logo.png";
 
-const Navbar = ({title}) => {
+const Navbar = ({ title }) => {
     const [open, toggleOpen] = useState(false);
 
     return (
         <nav className={open ? "navBar open" : "navBar"}>
-            <Link to="/" className="navLogo" title="Logo">
-                {title}
+            <Link to="/" className="navLogo" title={title}>
+                <img src={logo} alt="" className="logoImg"/> {title}
             </Link>
             <div className="navMenu"
                 onClick=
