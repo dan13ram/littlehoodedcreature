@@ -10,38 +10,38 @@ const Navbar = ({ title }) => {
             <Link to="/" className="navLogo" title={title}>
                 <img src={logo} alt="" className="logoImg"/> {title}
             </Link>
-            <div className="navMenu"
-                onClick=
-                {() => {
-                    toggleOpen(open => !open);
-                }}>
-                <Link className="navItem" to={`/blog`}>
-                    blog
-                </Link>
-                <Link className="navItem" to={`/work`}>
-                    work
-                </Link>
-                <Link className="navItem" to={`/art`}>
-                    art
-                </Link>
-                <Link className="navItem" to={`/about`}>
-                    about
-                </Link>
-                <Link className="navItem" to="/contact">
-                    contact
-                </Link>
-                <Link className="navItem" to="/contact/examples">
-                    form examples
-                </Link>
-            </div>
-            <div
-                className="navToggle"
-                onClick={() => {
-                    toggleOpen(open => !open);
-                }}
-            >
-                <div></div>
-            </div>
+            {/* <div className="navMenu" */}
+            {/*     onClick= */}
+            {/*     {() => { */}
+            {/*         toggleOpen(open => !open); */}
+            {/*     }}> */}
+            {/*     <Link className="navItem" to={`/blog`}> */}
+            {/*         blog */}
+            {/*     </Link> */}
+            {/*     <Link className="navItem" to={`/work`}> */}
+            {/*         work */}
+            {/*     </Link> */}
+            {/*     <Link className="navItem" to={`/art`}> */}
+            {/*         art */}
+            {/*     </Link> */}
+            {/*     <Link className="navItem" to={`/about`}> */}
+            {/*         about */}
+            {/*     </Link> */}
+            {/*     <Link className="navItem" to="/contact"> */}
+            {/*         contact */}
+            {/*     </Link> */}
+            {/*     <Link className="navItem" to="/contact/examples"> */}
+            {/*         form examples */}
+            {/*     </Link> */}
+            {/* </div> */}
+            {/* <div */}
+            {/*     className="navToggle" */}
+            {/*     onClick={() => { */}
+            {/*         toggleOpen(open => !open); */}
+            {/*     }} */}
+            {/* > */}
+            {/*     <div></div> */}
+            {/* </div> */}
         </nav>
     );
 };

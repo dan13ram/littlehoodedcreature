@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+:focus {
+    all: unset;
+    border-style: solid;
+    border-color: cyan;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -12,6 +18,7 @@ body {
     height: 100vh;
     display: flex;
     position: relative;
+    overflow: hidden;
 }
 
 a {
@@ -19,6 +26,11 @@ a {
     margin: 0;
     text-decoration: none;
     cursor: pointer;
+}
+
+@font-face {
+    font-family: "Consolas";
+    src: url("../fonts/Consolas.woff2") format("woff2");
 }
 
 // Common Components
@@ -48,7 +60,9 @@ a {
 // Layout
 
 .layout {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -62,7 +76,7 @@ a {
         align-items: center;
         justify-content: flex-start;
         width: 100vw;
-        overflow-x: hidden;
+        overflow: hidden;
         margin-top: 3rem;
         padding: 2rem 1rem 2rem 1rem;
     }
@@ -137,6 +151,50 @@ a {
     }
 }
 
+// Construction
+
+.construction {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: calc(100vw - 10rem);
+    height: calc(100vh - 10rem);
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px black;
+    font-family: "Consolas";
+    .banner {
+        box-shadow: 5px 5px 10px grey;
+        font-size: 2.5rem;
+        background: black;
+        padding: 0.5rem;
+        color: cyan;
+    }
+    .intro {
+        a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+            cursor: ne-resize;
+            &:hover {
+                color: grey;
+            }
+            .icon {
+                font-size: 1.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+@media (max-width: 60rem) {
+    .construction {
+        width: calc(100vw - 2rem);
+        height: calc(100vh - 2rem);
+    }
+}
 @media (max-width: 30rem) {
     .navBar {
         transition: height 0.25s ease-out;
