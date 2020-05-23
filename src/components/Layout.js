@@ -5,11 +5,6 @@ import Navbar from "./Navbar";
 import "../scss/all.scss";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
-import { Icon } from "@iconify/react";
-import instagramOutlined from "@iconify/icons-ant-design/instagram-outlined";
-import twitterOutlined from "@iconify/icons-ant-design/twitter-outlined";
-import linkedinOutlined from "@iconify/icons-ant-design/linkedin-outlined";
-import githubOutlined from "@iconify/icons-ant-design/github-outlined";
 
 const Layout = ({ children }) => {
     const { title, description, social } = useSiteMetadata();
@@ -54,48 +49,8 @@ const Layout = ({ children }) => {
                 />
             </Helmet>
             <Navbar title={title} />
-            <main className="main">
-                {/* children */}
-                <div className="construction">
-                    <div className="banner">Website Under Construction</div>
-                    <div className="intro">
-                        <p>You can find me at:</p>
-                        <a
-                            href={`https://github.com/${social.github}`}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <Icon className="icon" icon={githubOutlined} />{" "}
-                            Github
-                        </a>
-                        <a
-                            href={`https://instagram.com/${social.instagram}`}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <Icon className="icon" icon={instagramOutlined} />{" "}
-                            Instagram
-                        </a>
-                        <a
-                            href={`https://twitter.com/${social.twitter}`}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <Icon className="icon" icon={twitterOutlined} />{" "}
-                            Twitter
-                        </a>
-                        <a
-                            href={`https://linkedin.com/in/${social.linkedIn}`}
-                            target="_blank"
-                            rel="noopener"
-                        >
-                            <Icon className="icon" icon={linkedinOutlined} />{" "}
-                            LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </main>
-            <Footer title={title} />
+            <main className="main">{ children }</main>
+            <Footer title={title} social={social}/>
         </div>
     );
 };

@@ -18,7 +18,8 @@ body {
     height: 100vh;
     display: flex;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+    font-family: "Consolas";
 }
 
 a {
@@ -76,7 +77,7 @@ a {
         align-items: center;
         justify-content: flex-start;
         width: 100vw;
-        overflow: hidden;
+        overflow-x: hidden;
         margin-top: 3rem;
         padding: 2rem 1rem 2rem 1rem;
     }
@@ -151,53 +152,10 @@ a {
     }
 }
 
-// Construction
-
-.construction {
-    display: flex;
-    flex-direction: column;
-    background: white;
-    width: calc(100vw - 10rem);
-    height: calc(100vh - 10rem);
-    justify-content: space-around;
-    align-items: center;
-    padding: 1rem;
-    box-shadow: 5px 5px 10px black;
-    font-family: "Consolas";
-    .banner {
-        box-shadow: 5px 5px 10px grey;
-        font-size: 2.5rem;
-        background: black;
-        padding: 0.5rem;
-        color: cyan;
-    }
-    .intro {
-        a {
-            display: block;
-            text-decoration: none;
-            color: black;
-            display: flex;
-            align-items: center;
-            cursor: ne-resize;
-            &:hover {
-                color: grey;
-            }
-            .icon {
-                font-size: 1.5rem;
-                margin-right: 0.5rem;
-            }
-        }
-    }
-}
-@media (max-width: 60rem) {
-    .construction {
-        width: calc(100vw - 2rem);
-        height: calc(100vh - 2rem);
-    }
-}
 @media (max-width: 30rem) {
     .navBar {
-        transition: height 0.25s ease-out;
+        transition: height 0.25s ease-in-out;
+        height: 3rem;
         .navMenu {
             transition: opacity 0.25s;
             opacity: 0;
@@ -224,7 +182,6 @@ a {
             }
         }
         &.open {
-            transition: height 0.5s ease-in-out;
             height: 100vh;
             flex-direction: column;
             align-items: center;
@@ -275,32 +232,6 @@ a {
     }
 }
 
-// AboutPage
-
-.aboutPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40rem;
-    max-width: 95vw;
-    .avatar {
-        border-radius: 50%;
-    }
-    .follow-links {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        a {
-            text-decoration: none;
-            font-size: 2rem;
-            color: black;
-            &:hover {
-                color: grey;
-            }
-        }
-    }
-}
 
 // BlogPage
 
@@ -332,6 +263,49 @@ a {
         &:hover {
             background: grey;
         }
+    }
+}
+
+// AboutPage
+
+.aboutPage {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    width: calc(100vw - 10rem);
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    box-shadow: 5px 5px 10px black;
+    .avatar {
+        border-radius: 50%;
+    }
+    .content {
+        text-align: center;
+        max-width: 50rem;
+    }
+    .intro {
+        a {
+            display: block;
+            text-decoration: none;
+            color: black;
+            display: flex;
+            align-items: center;
+            cursor: ne-resize;
+            &:hover {
+                color: grey;
+            }
+            .icon {
+                font-size: 1.5rem;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 60rem) {
+    .aboutPage {
+        width: calc(100vw - 2rem);
     }
 }
 
