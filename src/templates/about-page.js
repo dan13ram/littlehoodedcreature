@@ -11,44 +11,45 @@ import twitterOutlined from "@iconify/icons-ant-design/twitter-outlined";
 import linkedinOutlined from "@iconify/icons-ant-design/linkedin-outlined";
 import githubOutlined from "@iconify/icons-ant-design/github-outlined";
 
-export const AboutPageTemplate = ({ title, content, contentComponent, fixedAvatar }) => {
+export const AboutPageTemplate = ({
+    title,
+    content,
+    contentComponent,
+    fixedAvatar
+}) => {
     const PageContent = contentComponent || Content;
     const { author, social } = useSiteMetadata();
 
     return (
         <div className="aboutPage">
-                <Image
-                    className="avatar"
-                    fixed={fixedAvatar}
-                    alt={author.name}
-                />
+            <Image className="avatar" fixed={fixedAvatar} alt={author.name} />
             <PageContent className="content" content={content} />
             <div className="intro">
                 <a
                     href={`https://github.com/${social.github}`}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                 >
                     <Icon className="icon" icon={githubOutlined} /> Github
                 </a>
                 <a
                     href={`https://instagram.com/${social.instagram}`}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                 >
                     <Icon className="icon" icon={instagramOutlined} /> Instagram
                 </a>
                 <a
                     href={`https://twitter.com/${social.twitter}`}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                 >
                     <Icon className="icon" icon={twitterOutlined} /> Twitter
                 </a>
                 <a
                     href={`https://linkedin.com/in/${social.linkedIn}`}
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                 >
                     <Icon className="icon" icon={linkedinOutlined} /> LinkedIn
                 </a>

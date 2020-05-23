@@ -15,23 +15,17 @@ const Navbar = ({ title }) => {
                 {() => {
                     toggleOpen(open => !open);
                 }}>
-                <Link className="navItem" to={`/blog`}>
-                    blog
-                </Link>
                 <Link className="navItem" to={`/work`}>
                     work
                 </Link>
                 <Link className="navItem" to={`/art`}>
                     art
                 </Link>
+                <Link className="navItem" to={`/blog`}>
+                    blog
+                </Link>
                 <Link className="navItem" to={`/about`}>
                     about
-                </Link>
-                <Link className="navItem" to="/contact">
-                    contact
-                </Link>
-                <Link className="navItem" to="/contact/examples">
-                    form examples
                 </Link>
             </div>
             <div

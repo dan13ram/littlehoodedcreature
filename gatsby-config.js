@@ -11,9 +11,9 @@ module.exports = {
             twitter: `dan13ram`,
             linkedIn: `dan13ram`,
             instagram: `dan13ram`,
-                youtube: `dan13ram`,
-                vimeo: `dan13ram`,
-                github: `dan13ram`
+            youtube: `dan13ram`,
+            vimeo: `dan13ram`,
+            github: `dan13ram`
         }
     },
     plugins: [
@@ -24,7 +24,7 @@ module.exports = {
             resolve: "gatsby-source-filesystem",
             options: {
                 path: `${__dirname}/static/img`,
-                name: "uploads"
+                name: "images"
             }
         },
         {
@@ -43,7 +43,7 @@ module.exports = {
                     {
                         resolve: "gatsby-remark-relative-images",
                         options: {
-                            name: "uploads"
+                            name: "images"
                         }
                     },
                     {
