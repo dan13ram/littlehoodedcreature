@@ -1,12 +1,12 @@
 ---
-templateKey: 'product-page'
-path: /products
+templateKey: 'art-page'
+path: /art
 title: Our Coffee
 image: /img/jumbotron.jpg
 heading: Great coffee with a conscience
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
+  java’s origin and support the farmers that grew it. We take coffee artion,
   roasting and brewing seriously and we’re glad to pass that knowledge to
   anyone.
 intro:
@@ -42,7 +42,7 @@ intro:
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
     java’s origin and support the farmers that grew it. We take coffee
-    production, roasting and brewing seriously and we’re glad to pass that
+    artion, roasting and brewing seriously and we’re glad to pass that
     knowledge to anyone. This is an edit via identity...
 main:
   heading: Great coffee with no compromises
@@ -69,7 +69,7 @@ testimonials:
     quote: >-
       Kaldi is the place to go if you want the best quality coffee. I love their
       stance on empowering farmers and transparency.
-full_image: /img/products-full-width.jpg
+fullImage: /img/art-full-width.jpg
 pricing:
   heading: Monthly subscriptions
   description: >-
