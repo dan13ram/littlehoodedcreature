@@ -21,7 +21,6 @@ a {
     cursor: pointer;
 }
 
-
 // Common Components
 
 .bio {
@@ -63,10 +62,13 @@ a {
         align-items: center;
         justify-content: flex-start;
         width: 100vw;
+        overflow-x: hidden;
         margin-top: 3rem;
-        padding: 1rem;
+        padding: 2rem 1rem 2rem 1rem;
     }
     .footer {
+        box-shadow: 0 -5px 10px black;
+        z-index: 10;
         align-self: flex-end;
         width: 100vw;
         display: flex;
@@ -100,6 +102,7 @@ a {
     height: 3rem;
     background: black;
     color: white;
+    box-shadow: 0 5px 10px black;
     .navLogo {
         height: 3rem;
         width: 7rem;
@@ -156,7 +159,7 @@ a {
                 display: block;
                 height: 2px;
                 margin: 6px 0;
-            transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
             }
         }
         &.open {
@@ -268,5 +271,55 @@ a {
         &:hover {
             background: grey;
         }
+    }
+}
+
+// Templates
+
+// BlogPost
+
+.blogPost {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    .container {
+        header {
+            width: 100%;
+            &::after {
+                opacity: 0.5;
+                max-width: 100%;
+                background-color: grey;
+                content: "";
+                display: block;
+                height: 1px;
+                margin: 5px 5% 5px 5%;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+        .content {
+            width: 100%;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        padding: 1rem;
+        background: white;
+        box-shadow: 5px 5px 10px black;
+    }
+    footer {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 1rem;
+        background: white;
+        box-shadow: 5px 5px 10px black;
+    }
+}
+
+@media (max-width: 50rem) {
+    .blogPost {
+        width: calc(100vw - 3rem);
     }
 }
