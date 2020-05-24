@@ -56,12 +56,46 @@ module.exports = {
                         }
                     },
                     {
+                        resolve: `gatsby-remark-responsive-iframe`,
+                        options: {
+                            wrapperStyle: `margin-bottom: 1.0725rem`
+                        }
+                    },
+                    `gatsby-remark-prismjs`,
+                    {
                         resolve: "gatsby-remark-copy-linked-files",
                         options: {
                             destinationDir: "static"
                         }
-                    }
+                    },
+                    `gatsby-remark-smartypants`,
                 ]
+            }
+        },
+        {
+            resolve: `gatsby-plugin-layout`,
+            options: {
+                component: require.resolve(`./src/components/Layout`)
+            }
+        },
+        `gatsby-transformer-sharp`,
+        `gatsby-plugin-sharp`,
+        {
+            resolve: `gatsby-plugin-google-analytics`,
+            options: {
+                trackingId: process.env.GA_PROPERTY_ID
+            }
+        },
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: `dan13ram`,
+                short_name: `dan13ram`,
+                start_url: `/`
+                //background_color: `#ffffff`,
+                //theme_color: `#663399`,
+                //display: `minimal-ui`,
+                //icon: `content/assets/gatsby-icon.png`
             }
         },
         {

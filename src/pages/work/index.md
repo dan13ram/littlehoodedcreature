@@ -2,7 +2,6 @@
 templateKey: 'work-page'
 path: /work
 title: Our Coffee
-image: /img/jumbotron.jpg
 heading: Great coffee with a conscience
 description: >-
   Kaldi is the ultimate spot for coffee lovers who want to learn about their
@@ -69,7 +68,6 @@ testimonials:
     quote: >-
       Kaldi is the place to go if you want the best quality coffee. I love their
       stance on empowering farmers and transparency.
-fullImage: /img/work-full-width.jpg
 pricing:
   heading: Monthly subscriptions
   description: >-

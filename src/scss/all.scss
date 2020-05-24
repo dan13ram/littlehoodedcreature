@@ -4,22 +4,33 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dark-color: black;
+    --light-color: white;
+
+    --shadow-color: grey;
+    --background-color: lightgrey;
+    --primary-color: cyan;
+    --box-shadow: 0 5px 10px var(--shadow-color);
+}
+
 :focus {
     all: unset;
     border-style: solid;
-    border-color: cyan;
+    border-color: var(--primary-color);
 }
 
 body {
     padding: 0;
     margin: 0;
-    background: lightgrey;
+    background: var(--background-color);
     width: 100vw;
     height: 100vh;
     display: flex;
     position: relative;
     overflow-x: hidden;
     font-family: "Consolas";
+    color: var(--dark-color);
 }
 
 a {
@@ -32,6 +43,61 @@ a {
 @font-face {
     font-family: "Consolas";
     src: url("../fonts/Consolas.woff2") format("woff2");
+}
+
+// Theme Switch
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--dark-color);
+  transition: .4s;
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+input:checked + .slider {
+  background-color: var(--shadow-color);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
 
 // Common Components
@@ -50,9 +116,9 @@ a {
         a {
             text-decoration: none;
             font-size: 1.5rem;
-            color: black;
+            color: var(--dark-color);
             &:hover {
-                color: grey;
+                color: var(--shadow-color);
             }
         }
     }
@@ -82,14 +148,13 @@ a {
         padding: 2rem 1rem 2rem 1rem;
     }
     .footer {
-        box-shadow: 0 -5px 10px black;
         z-index: 10;
         align-self: flex-end;
         width: 100vw;
         display: flex;
         height: 3rem;
-        background: black;
-        color: white;
+        background: var(--dark-color);
+        color: var(--light-color);
         display: flex;
         align-items: center;
         justify-content: flex-end;
@@ -97,9 +162,9 @@ a {
             padding: 0.5rem;
             font-size: 1rem;
             text-decoration: none;
-            color: white;
+            color: var(--light-color);
             &:hover {
-                color: grey;
+                color: var(--shadow-color);
             }
         }
     }
@@ -115,9 +180,9 @@ a {
     z-index: 10;
     width: 100vw;
     height: 3rem;
-    background: black;
-    color: white;
-    box-shadow: 0 5px 10px black;
+    background: var(--dark-color);
+    color: var(--light-color);
+    box-shadow: var(--box-shadow);
     .navLogo {
         height: 3rem;
         width: 7rem;
@@ -129,9 +194,9 @@ a {
         position: absolute;
         left: 0;
         top: 0;
-        color: white;
+        color: var(--light-color);
         &:hover {
-            color: grey;
+            color: var(--shadow-color);
         }
         .logoImg {
             width: 2rem;
@@ -144,15 +209,20 @@ a {
         .navItem {
             padding: 0.5rem;
             font-size: 1rem;
-            color: white;
+            color: var(--light-color);
             &:hover {
-                color: grey;
+                color: var(--shadow-color);
             }
         }
     }
 }
 
 @media (max-width: 30rem) {
+    .switch {
+        position: absolute;
+        top: calc(1.5rem - 10px);
+        right: 3rem;
+    }
     .navBar {
         transition: height 0.25s ease-in-out;
         height: 3rem;
@@ -172,7 +242,7 @@ a {
             &::after,
             &::before,
             div {
-                background-color: #fff;
+                background-color: var(--light-color);
                 border-radius: 2px;
                 content: "";
                 display: block;
@@ -210,7 +280,7 @@ a {
                 width: 100%;
                 border-style: solid none none none;
                 border-width: 1px;
-                border-color: white;
+                border-color: var(--light-color);
                 align-items: stretch;
                 display: flex;
                 justify-content: flex-start;
@@ -222,9 +292,9 @@ a {
                     height: 4rem;
                     border-style: none none solid none;
                     border-width: 1px;
-                    border-color: grey;
+                    border-color: var(--shadow-color);
                     &:hover {
-                        background: white;
+                        background: var(--light-color);
                     }
                 }
             }
@@ -232,24 +302,31 @@ a {
     }
 }
 
-
 // BlogPage
 
 .blogPage {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100vw;
+}
+
+.blogRoll {
+    display: flex;
     flex-flow: row wrap;
     justify-content: center;
-    width: 70rem;
-    max-width: 95vw;
-    .tile {
+    width: calc(100vw - 5rem);
+    .blogRollItem {
+        background: var(--light-color);
+        align-items: center;
+        padding: 1rem;
+        box-shadow: var(--box-shadow);
         display: flex;
         flex-direction: column;
-        width: 30rem;
+        width: 25rem;
         max-width: 90vw;
         min-height: 10rem;
-        border-radius: 10px;
-        border-style: solid;
-        border-color: grey;
         margin: 1rem;
         padding: 1rem;
         cursor: pointer;
@@ -257,12 +334,21 @@ a {
             height: 100%;
             width: 100%;
             text-decoration: none;
-            color: black;
+            color: var(--dark-color);
         }
 
         &:hover {
-            background: grey;
+            background: var(--shadow-color);
         }
+
+        &.featured {
+        }
+    }
+}
+
+@media (max-width: 60rem) {
+    .blogRoll {
+        width: calc(100vw - 2rem);
     }
 }
 
@@ -271,14 +357,17 @@ a {
 .aboutPage {
     display: flex;
     flex-direction: column;
-    background: white;
     width: calc(100vw - 10rem);
     justify-content: space-around;
+    background: var(--light-color);
     align-items: center;
     padding: 1rem;
-    box-shadow: 5px 5px 10px black;
+    box-shadow: var(--box-shadow);
     .avatar {
         border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: var(--dark-color);
     }
     .content {
         text-align: center;
@@ -288,12 +377,12 @@ a {
         a {
             display: block;
             text-decoration: none;
-            color: black;
+            color: var(--dark-color);
             display: flex;
             align-items: center;
             cursor: ne-resize;
             &:hover {
-                color: grey;
+                color: var(--shadow-color);
             }
             .icon {
                 font-size: 1.5rem;
@@ -325,7 +414,7 @@ a {
             &::after {
                 opacity: 0.5;
                 max-width: 100%;
-                background-color: grey;
+                background-color: var(--shadow-color);
                 content: "";
                 display: block;
                 height: 1px;
@@ -341,15 +430,15 @@ a {
             }
         }
         padding: 1rem;
-        background: white;
-        box-shadow: 5px 5px 10px black;
+        background: var(--light-color);
+        box-shadow: var(--box-shadow);
     }
     footer {
         margin-top: 1rem;
         width: 100%;
         padding: 1rem;
-        background: white;
-        box-shadow: 5px 5px 10px black;
+        background: var(--light-color);
+        box-shadow: var(--box-shadow);
     }
 }
 
