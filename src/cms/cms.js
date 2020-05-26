@@ -16,3 +16,5 @@ CMS.registerPreviewTemplate("about", AboutPagePreview);
 CMS.registerPreviewTemplate("art", ArtPagePreview);
 CMS.registerPreviewTemplate("work", WorkPagePreview);
 CMS.registerPreviewTemplate("blog", BlogPostPreview);
+
+CMS.init();
