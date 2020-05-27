@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/Layout";
+import SEO from "../components/SEO";
 import Content, { HTMLContent } from "../components/Content";
 
 export const BlogPostTemplate = ({
@@ -21,13 +21,13 @@ export const BlogPostTemplate = ({
             {helmet || ""}
 
             <article className="container">
-            <header>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </header>
-                
-            <PostContent content={content} className="content" />
-               </article>
+                <header>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </header>
+
+                <PostContent content={content} className="content" />
+            </article>
             <footer>
                 {tags && tags.length ? (
                     <div>
@@ -66,13 +66,16 @@ const BlogPost = ({ data }) => {
                 contentComponent={HTMLContent}
                 description={post.frontmatter.description}
                 helmet={
-                    <Helmet titleTemplate="%s | Blog">
-                        <title>{`${post.frontmatter.title}`}</title>
-                        <meta
-                            name="description"
-                            content={`${post.frontmatter.description}`}
-                        />
-                    </Helmet>
+                    <SEO
+                        titleTemplate="%s | Blog"
+                        title={post.frontmatter.title}
+                        meta={[
+                            {
+                                name: "description",
+                                content: post.frontmatter.description
+                            }
+                        ]}
+                    />
                 }
                 tags={post.frontmatter.tags}
                 title={post.frontmatter.title}

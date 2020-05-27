@@ -6,14 +6,10 @@ import SEO from "../../components/SEO";
 import "../../scss/blogPage.scss";
 
 const BlogPage = ({
-    data: {
-        site: {
-            siteMetadata: { title }
-        }
-    }
+    data
 }) => (
     <Layout>
-        <SEO title={`Blog | ${title}`} />
+        <SEO title={`Blog`} />
         <div className="blogPage">
             <div className="intro">Check what Vitalik has written</div>
             <div className="content">

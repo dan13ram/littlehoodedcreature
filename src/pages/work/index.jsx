@@ -1,23 +1,17 @@
 import React from "react";
-import { graphql } from 'gatsby';
+import { graphql } from "gatsby";
 import Layout from "../../components/Layout";
-import BlogRoll from "../../components/BlogRoll";
+import WorkRoll from "../../components/WorkRoll";
 import SEO from "../../components/SEO";
 import "../../scss/workPage.scss";
 
-const WorkPage = ({
-    data: {
-        site: {
-            siteMetadata: { title }
-        }
-    }
-}) => (
+const WorkPage = ({ data }) => (
     <Layout>
-        <SEO title={`Work | ${title}`} />
+        <SEO title={`Work`} />
         <div className="workPage">
             <div className="intro">Check what Vitalik has written</div>
             <div className="content">
-                <BlogRoll />
+                <WorkRoll />
             </div>
         </div>
     </Layout>

@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import useSiteMetadata from "./SiteMetadata";
-import { withPrefix } from "gatsby";
+//import { withPrefix } from "gatsby";
 import { Helmet } from "react-helmet";
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, titleTemplate }) => {
     const siteMetadata = useSiteMetadata();
     const metaDescription = description || siteMetadata.description;
 
@@ -14,7 +14,7 @@ const SEO = ({ description, lang, meta, title }) => {
                 lang
             }}
             title={title}
-            titleTemplate={`%s | ${siteMetadata.title}`}
+            titleTemplate={titleTemplate || `%s | ${siteMetadata.title}`}
             meta={[
                 {
                     name: `description`,
@@ -72,14 +72,16 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
     lang: `en`,
     meta: [],
-    description: ``
+    description: ``,
+    titleTemplate: ``
 };
 
 SEO.propTypes = {
     description: PropTypes.string,
     lang: PropTypes.string,
     meta: PropTypes.arrayOf(PropTypes.object),
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    titleTemplate: PropTypes.string
 };
 
 export default SEO;

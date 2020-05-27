@@ -1,0 +1,39 @@
+.artRoll {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    width: calc(100vw - 5rem);
+    .artCollection {
+        background: var(--light-color);
+        align-items: center;
+        padding: 1rem;
+        box-shadow: var(--box-shadow);
+        display: flex;
+        flex-direction: column;
+        width: 25rem;
+        max-width: 90vw;
+        min-height: 10rem;
+        margin: 1rem;
+        padding: 1rem;
+        cursor: pointer;
+        a {
+            height: 100%;
+            width: 100%;
+            text-decoration: none;
+            color: var(--dark-color);
+        }
+
+        &:hover {
+            background: var(--shadow-color);
+        }
+
+        &.featured {
+        }
+    }
+}
+
+@media (max-width: 60rem) {
+    .artRoll {
+        width: calc(100vw - 2rem);
+    }
+}

@@ -68,10 +68,10 @@ AboutPageTemplate.propTypes = {
 
 const AboutPage = ({
     data}) => {
-        const {avatar, markdownRemark, site} = data;
+        const {avatar, markdownRemark} = data;
     return (
         <Layout>
-            <SEO title={`About | ${site.title}`} />
+            <SEO title={`About`} />
             <AboutPageTemplate
                 contentComponent={HTMLContent}
                 fixedAvatar={avatar.childImageSharp.fixed}
@@ -86,11 +86,6 @@ export default AboutPage;
 
 export const aboutQuery = graphql`
     query AboutPageQuery {
-        site {
-            siteMetadata {
-                title
-            }
-        }
         avatar: file(absolutePath: { regex: "/profile-pic.jpg/" }) {
             childImageSharp {
                 fixed(width: 300, height: 300) {
