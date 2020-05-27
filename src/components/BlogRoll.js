@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql, StaticQuery } from "gatsby";
 import PreviewCompatibleImage from "./PreviewCompatibleImage";
+import "../scss/blogRoll.scss";
 
 class BlogRoll extends React.Component {
     render() {
@@ -16,8 +17,8 @@ class BlogRoll extends React.Component {
                             key={post.id}
                             className={
                                 post.frontmatter.featuredpost
-                                    ? "blogRollItem featured"
-                                    : "blogRollItem"
+                                    ? "blogPost featured"
+                                    : "blogPost"
                             }
                         >
                             <Link to={post.fields.slug}>
