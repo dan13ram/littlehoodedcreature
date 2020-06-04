@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
-import Content, { HTMLContent } from "../components/Content";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import { graphql, Link } from 'gatsby';
+import SEO from '../components/SEO';
+import Content, { HTMLContent } from '../components/Content';
+import '../scss/post.scss';
 
 export const BlogPostTemplate = ({
     content,
@@ -12,13 +12,13 @@ export const BlogPostTemplate = ({
     description,
     tags,
     title,
-    helmet
+    helmet,
 }) => {
     const PostContent = contentComponent || Content;
 
     return (
-        <div className="blogPost">
-            {helmet || ""}
+        <div className="blogPost post">
+            {helmet || ''}
 
             <article className="container">
                 <header>
@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({
                     <div>
                         <h4>Tags</h4>
                         <ul className="taglist">
-                            {tags.map(tag => (
+                            {tags.map((tag) => (
                                 <li key={tag + `tag`}>
                                     <Link to={`/tags/${kebabCase(tag)}/`}>
                                         {tag}
@@ -53,41 +53,39 @@ BlogPostTemplate.propTypes = {
     contentComponent: PropTypes.func,
     description: PropTypes.string,
     title: PropTypes.string,
-    helmet: PropTypes.object
+    helmet: PropTypes.object,
 };
 
 const BlogPost = ({ data }) => {
     const { markdownRemark: post } = data;
 
     return (
-        <Layout>
-            <BlogPostTemplate
-                content={post.html}
-                contentComponent={HTMLContent}
-                description={post.frontmatter.description}
-                helmet={
-                    <SEO
-                        titleTemplate="%s | Blog"
-                        title={post.frontmatter.title}
-                        meta={[
-                            {
-                                name: "description",
-                                content: post.frontmatter.description
-                            }
-                        ]}
-                    />
-                }
-                tags={post.frontmatter.tags}
-                title={post.frontmatter.title}
-            />
-        </Layout>
+        <BlogPostTemplate
+            content={post.html}
+            contentComponent={HTMLContent}
+            description={post.frontmatter.description}
+            helmet={
+                <SEO
+                    titleTemplate="%s | Blog"
+                    title={post.frontmatter.title}
+                    meta={[
+                        {
+                            name: 'description',
+                            content: post.frontmatter.description,
+                        },
+                    ]}
+                />
+            }
+            tags={post.frontmatter.tags}
+            title={post.frontmatter.title}
+        />
     );
 };
 
 BlogPost.propTypes = {
     data: PropTypes.shape({
-        markdownRemark: PropTypes.object
-    })
+        markdownRemark: PropTypes.object,
+    }),
 };
 
 export default BlogPost;

@@ -1,8 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import useSiteMetadata from "./SiteMetadata";
-//import { withPrefix } from "gatsby";
-import { Helmet } from "react-helmet";
+import React from 'react';
+import PropTypes from 'prop-types';
+import useSiteMetadata from './SiteMetadata';
+import { Helmet } from 'react-helmet';
+import logo from '../../static/img/logo.svg';
+import { withPrefix } from 'gatsby';
 
 const SEO = ({ description, lang, meta, title, titleTemplate }) => {
     const siteMetadata = useSiteMetadata();
@@ -11,59 +12,60 @@ const SEO = ({ description, lang, meta, title, titleTemplate }) => {
     return (
         <Helmet
             htmlAttributes={{
-                lang
+                lang,
             }}
             title={title}
             titleTemplate={titleTemplate || `%s | ${siteMetadata.title}`}
+            link={[{ rel: 'icon', type: 'image/svg+xml', href: logo }]}
             meta={[
                 {
                     name: `description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
                     property: `og:title`,
-                    content: title
+                    content: title,
                 },
                 {
                     property: `og:description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
                     property: `og:type`,
-                    content: `website`
+                    content: `website`,
                 },
                 {
                     name: `twitter:card`,
-                    content: `summary`
+                    content: `summary`,
                 },
                 {
                     name: `twitter:creator`,
-                    content: siteMetadata.social.twitter
+                    content: siteMetadata.social.twitter,
                 },
                 {
                     name: `twitter:title`,
-                    content: title
+                    content: title,
                 },
                 {
                     name: `twitter:description`,
-                    content: metaDescription
+                    content: metaDescription,
                 },
                 {
                     name: `theme-color`,
-                    content: `#fff`
+                    content: `#fff`,
                 },
                 {
                     name: `msapplication-TileColor`,
-                    content: `#fff`
+                    content: `#fff`,
                 },
                 {
                     property: `og:type`,
-                    content: `website`
-                }
-                // {
-                //     property: `og:image`,
-                //     content: `${withPrefix(`/`)}img/om-logo.png`
-                // }
+                    content: `website`,
+                },
+                {
+                    property: `og:image`,
+                    content: `${withPrefix(`/`)}img/logo.svg`,
+                },
             ].concat(meta)}
         />
     );
@@ -73,7 +75,7 @@ SEO.defaultProps = {
     lang: `en`,
     meta: [],
     description: ``,
-    titleTemplate: ``
+    titleTemplate: ``,
 };
 
 SEO.propTypes = {
@@ -81,7 +83,7 @@ SEO.propTypes = {
     lang: PropTypes.string,
     meta: PropTypes.arrayOf(PropTypes.object),
     title: PropTypes.string.isRequired,
-    titleTemplate: PropTypes.string
+    titleTemplate: PropTypes.string,
 };
 
 export default SEO;

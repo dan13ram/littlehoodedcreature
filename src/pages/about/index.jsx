@@ -1,29 +1,30 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
-import Layout from "../../components/Layout";
-import SEO from "../../components/SEO";
-import useSiteMetadata from "../../components/SiteMetadata";
-import Content, { HTMLContent } from "../../components/Content";
-import Image from "gatsby-image";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
+import SEO from '../../components/SEO';
+import useSiteMetadata from '../../components/SiteMetadata';
+import Content, { HTMLContent } from '../../components/Content';
+import Image from 'gatsby-image';
 
-import { Icon } from "@iconify/react";
-import instagramOutlined from "@iconify/icons-ant-design/instagram-outlined";
-import twitterOutlined from "@iconify/icons-ant-design/twitter-outlined";
-import linkedinOutlined from "@iconify/icons-ant-design/linkedin-outlined";
-import githubOutlined from "@iconify/icons-ant-design/github-outlined";
+import { Icon } from '@iconify/react';
+import instagramOutlined from '@iconify/icons-ant-design/instagram-outlined';
+import twitterOutlined from '@iconify/icons-ant-design/twitter-outlined';
+import linkedinOutlined from '@iconify/icons-ant-design/linkedin-outlined';
+import githubOutlined from '@iconify/icons-ant-design/github-outlined';
+import '../../scss/aboutPage.scss';
 
 export const AboutPageTemplate = ({
     title,
     content,
     contentComponent,
-    fixedAvatar
+    fixedAvatar,
 }) => {
     const PageContent = contentComponent || Content;
     const { author, social } = useSiteMetadata();
 
     return (
         <div className="aboutPage">
+            <SEO title={`About`} />
             <Image className="avatar" fixed={fixedAvatar} alt={author.name} />
             <PageContent className="content" content={content} />
             <div className="intro">
@@ -63,22 +64,18 @@ export const AboutPageTemplate = ({
 AboutPageTemplate.propTypes = {
     title: PropTypes.string.isRequired,
     content: PropTypes.string,
-    contentComponent: PropTypes.func
+    contentComponent: PropTypes.func,
 };
 
-const AboutPage = ({
-    data}) => {
-        const {avatar, markdownRemark} = data;
+const AboutPage = ({ data }) => {
+    const { avatar, markdownRemark } = data;
     return (
-        <Layout>
-            <SEO title={`About`} />
-            <AboutPageTemplate
-                contentComponent={HTMLContent}
-                fixedAvatar={avatar.childImageSharp.fixed}
-                title={markdownRemark.frontmatter.title}
-                content={markdownRemark.html}
-            />
-        </Layout>
+        <AboutPageTemplate
+            contentComponent={HTMLContent}
+            fixedAvatar={avatar.childImageSharp.fixed}
+            title={markdownRemark.frontmatter.title}
+            content={markdownRemark.html}
+        />
     );
 };
 

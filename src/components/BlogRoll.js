@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql, StaticQuery } from "gatsby";
-import PreviewCompatibleImage from "./PreviewCompatibleImage";
-import "../scss/blogRoll.scss";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
+import '../scss/roll.scss';
 
 class BlogRoll extends React.Component {
     render() {
@@ -10,27 +10,27 @@ class BlogRoll extends React.Component {
         const { edges: posts } = data.allMarkdownRemark;
 
         return (
-            <div className="blogRoll">
+            <div className="blogRoll roll">
                 {posts &&
                     posts.map(({ node: post }) => (
                         <article
                             key={post.id}
                             className={
-                                post.frontmatter.featuredpost
-                                    ? "blogPost featured"
-                                    : "blogPost"
+                                post.frontmatter.featuredPost
+                                    ? 'rollItem blogPost featured'
+                                    : 'rollItem blogPost'
                             }
                         >
                             <Link to={post.fields.slug}>
                                 <header>
-                                    {post.frontmatter.featuredimage ? (
+                                    {post.frontmatter.featuredImage ? (
                                         <div className="featuredImage">
                                             <PreviewCompatibleImage
                                                 imageInfo={{
                                                     image:
                                                         post.frontmatter
-                                                            .featuredimage,
-                                                    alt: `featured image thumbnail for post ${post.frontmatter.title}`
+                                                            .featuredImage,
+                                                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
                                                 }}
                                             />
                                         </div>
@@ -42,7 +42,7 @@ class BlogRoll extends React.Component {
                                     </p>
                                 </header>
                                 <p>{post.excerpt}</p>
-                                <footer>Keep Reading →</footer>
+                                <span>Keep Reading →</span>
                             </Link>
                         </article>
                     ))}
@@ -54,9 +54,9 @@ class BlogRoll extends React.Component {
 BlogRoll.propTypes = {
     data: PropTypes.shape({
         allMarkdownRemark: PropTypes.shape({
-            edges: PropTypes.array
-        })
-    })
+            edges: PropTypes.array,
+        }),
+    }),
 };
 
 export default () => (
@@ -80,8 +80,8 @@ export default () => (
                                 title
                                 templateKey
                                 date(formatString: "MMMM DD, YYYY")
-                                featuredpost
-                                featuredimage {
+                                featuredPost
+                                featuredImage {
                                     childImageSharp {
                                         fluid(maxWidth: 120, quality: 100) {
                                             ...GatsbyImageSharpFluid

@@ -1,32 +1,29 @@
-import React from "react";
-import { kebabCase } from "lodash";
-import { Helmet } from "react-helmet";
-import { Link, graphql } from "gatsby";
-import Layout from "../../components/Layout";
+import React from 'react';
+import { kebabCase } from 'lodash';
+import SEO from '../../components/SEO';
+import { Link, graphql } from 'gatsby';
 
 const TagsPage = ({
     data: {
         allMarkdownRemark: { group },
         site: {
-            siteMetadata: { title }
-        }
-    }
+            siteMetadata: { title },
+        },
+    },
 }) => (
-    <Layout>
-        <div className="tagsPage">
-            <Helmet title={`Tags | ${title}`} />
-            <h1>Tags</h1>
-            <ul>
-                {group.map(tag => (
-                    <li key={tag.fieldValue}>
-                        <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                            {tag.fieldValue} ({tag.totalCount})
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    </Layout>
+    <div className="tagsPage">
+        <SEO title={`Tags`} />
+        <h1>Tags</h1>
+        <ul>
+            {group.map((tag) => (
+                <li key={tag.fieldValue}>
+                    <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                        {tag.fieldValue} ({tag.totalCount})
+                    </Link>
+                </li>
+            ))}
+        </ul>
+    </div>
 );
 
 export default TagsPage;

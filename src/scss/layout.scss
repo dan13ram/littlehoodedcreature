@@ -1,0 +1,228 @@
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    margin-right: 0.5rem;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background-color);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--dark-color);
+    transition: 0.4s;
+}
+
+input:checked + .slider:before {
+    transform: translateX(16px);
+}
+
+input:checked + .slider {
+    background-color: var(--shadow-color);
+}
+
+.slider.round {
+    border-radius: 20px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.layout {
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow-x: hidden;
+    width: 100vw;
+    .main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100vw;
+        min-height: calc(100vh - 9rem);
+        overflow-x: hidden;
+        margin-top: 6rem;
+    }
+    .footer {
+        z-index: 10;
+        width: 100vw;
+        height: 3rem;
+        background: var(--dark-color);
+        color: var(--light-color);
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        a {
+            padding: 0.5rem;
+            font-size: 1rem;
+            text-decoration: none;
+            color: var(--light-color);
+            &:hover {
+                color: var(--shadow-color);
+            }
+        }
+        padding-right: 2rem;
+    }
+}
+.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 10;
+    width: 100vw;
+    height: 6rem;
+    background: var(--dark-color);
+    color: var(--light-color);
+    box-shadow: var(--box-shadow);
+    .navLogo {
+        height: 6rem;
+        width: 9rem;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        position: absolute;
+        left: 1rem;
+        top: 0;
+        color: var(--light-color);
+        &:hover {
+            color: var(--shadow-color);
+        }
+        .logoImg {
+            width: 4rem;
+        }
+    }
+    .navToggle {
+        display: none;
+    }
+    .navMenu {
+        margin-right: 1rem;
+        .navItem {
+            padding: 0.5rem;
+            font-size: 1rem;
+            color: var(--light-color);
+            &:hover {
+                color: var(--shadow-color);
+            }
+        }
+    }
+}
+
+@media (max-width: 30rem) {
+    .switch {
+        position: absolute;
+        top: calc(3rem - 10px);
+        right: 4rem;
+    }
+    .navBar {
+        transition: height 0.25s ease-in-out;
+        height: 6rem;
+        .navMenu {
+            transition: opacity 0.25s;
+            opacity: 0;
+            visibility: hidden;
+        }
+        .navToggle {
+            display: block;
+            position: absolute;
+            right: 2rem;
+            top: 2rem;
+            padding: 0;
+            margin: 0;
+            width: 20px;
+            &::after,
+            &::before,
+            div {
+                background-color: var(--light-color);
+                border-radius: 2px;
+                content: "";
+                display: block;
+                height: 2px;
+                margin: 6px 0;
+                transition: all 0.5s ease-in-out;
+            }
+        }
+        &.open {
+            height: 100vh;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+
+            .navToggle {
+                transition: all 0.5s ease-in-out;
+                &::before {
+                    transform: translateY(8px) rotate(135deg);
+                }
+
+                &::after {
+                    transform: translateY(-8px) rotate(-135deg);
+                }
+
+                div {
+                    transform: scale(0);
+                }
+            }
+            .navMenu {
+                height: 100vh;
+                margin-top: 6rem;
+                transition: opacity 0.5s;
+                opacity: 1;
+                visibility: visible;
+                width: 100%;
+                border-style: solid none none none;
+                border-width: 1px;
+                border-color: var(--light-color);
+                align-items: stretch;
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                .navItem {
+                    justify-content: center;
+                    align-items: center;
+                    display: flex;
+                    height: 4rem;
+                    border-style: none none solid none;
+                    border-width: 1px;
+                    border-color: var(--shadow-color);
+                    &:hover {
+                        background: var(--light-color);
+                    }
+                }
+            }
+        }
+    }
+}

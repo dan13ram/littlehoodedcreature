@@ -1,20 +1,17 @@
-import React from "react";
-import { graphql } from "gatsby";
-import Layout from "../../components/Layout";
-import WorkRoll from "../../components/WorkRoll";
-import SEO from "../../components/SEO";
-import "../../scss/workPage.scss";
+import React from 'react';
+import { graphql } from 'gatsby';
+import WorkRoll from '../../components/WorkRoll';
+import SEO from '../../components/SEO';
+import '../../scss/workPage.scss';
 
 const WorkPage = ({ data }) => (
-    <Layout>
+    <div className="workPage">
         <SEO title={`Work`} />
-        <div className="workPage">
-            <div className="intro">Check what Vitalik has written</div>
-            <div className="content">
-                <WorkRoll />
-            </div>
+        <div className="intro">Check what Vitalik has written</div>
+        <div className="content">
+            <WorkRoll />
         </div>
-    </Layout>
+    </div>
 );
 export default WorkPage;
 

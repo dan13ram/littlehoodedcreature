@@ -5,11 +5,12 @@
     justify-content: flex-start;
     width: 100vw;
     .intro{
-        display: flex;
+        display: none;
         height: 100vh;
         width: 100vw;
         justify-content: center;
         align-items:  center;
+        background: lightpink;
     }
     .content{
         display: flex;

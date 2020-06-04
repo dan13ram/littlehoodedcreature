@@ -2,6 +2,7 @@
 pageKey: 'about'
 path: /about
 title: About me
+featuredImage: /img/profile-pic.jpg
 ---
 
 I am **Dhanwanthari Ramakrishnan** from Bangalore, India.

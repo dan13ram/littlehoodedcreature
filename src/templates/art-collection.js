@@ -1,81 +1,106 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Layout";
-import SEO from "../components/SEO";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import { graphql, Link } from 'gatsby';
+import Image from 'gatsby-image';
+import SEO from '../components/SEO';
+import '../scss/post.scss';
 
-const ArtCollection = ({ data }) => {
-    const {
-        markdownRemark: {
-            frontmatter: { title, description, tags, contents }
-        }
-    } = data;
-
+export const ArtCollectionTemplate = ({
+    title,
+    description,
+    content,
+    tags,
+    helmet,
+}) => {
     return (
-        <Layout>
-            <div className="artCollection">
-                <SEO
-                    titleTemplate="%s | Art"
-                    title={title}
-                    meta={[
-                        {
-                            name: "description",
-                            content: description
-                        }
-                    ]}
-                />
+        <div className="artCollection post">
+            {helmet || ''}
 
-                <article className="container">
-                    <header>
-                        <h1>{title}</h1>
-                        <p>{description}</p>
-                    </header>
+            <article className="container">
+                <header>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </header>
 
-                    <div className="content">
-                        {contents && contents.length ? (
-                            <div>
-                                <h4>Contents</h4>
-                                <ul className="imagelist">
-                                    {contents.map(content => (
-                                        <li key={content + `img`}>
-                                            <span>{content.title}</span>
-                                            <span>{content.image}</span>
-                                            <span>{content.width}</span>
-                                            <span>{content.height}</span>
-                                            <span>{content.size}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ) : null}
-                    </div>
-                </article>
-                <footer>
-                    {tags && tags.length ? (
+                <div className="content">
+                    {content && content.length ? (
                         <div>
-                            <h4>Tags</h4>
-                            <ul className="taglist">
-                                {tags.map(tag => (
-                                    <li key={tag + `tag`}>
-                                        <Link to={`/tags/${kebabCase(tag)}/`}>
-                                            {tag}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                            <h4>Content</h4>
+                            {content.map((item, index) => (
+                                <div key={index} className="contentItem">
+                                    <p>{item.title}</p>
+                                    <Image
+                                        className="avatar"
+                                        fluid={item.image.childImageSharp.fluid}
+                                        alt={item.title}
+                                    />
+                                    <p>{item.width}</p>
+                                    <p>{item.height}</p>
+                                    <p>{item.size}</p>
+                                </div>
+                            ))}
                         </div>
                     ) : null}
-                </footer>
-            </div>
-        </Layout>
+                </div>
+            </article>
+            <footer>
+                {tags && tags.length ? (
+                    <div>
+                        <h4>Tags</h4>
+                        <ul className="taglist">
+                            {tags.map((tag) => (
+                                <li key={tag + `tag`}>
+                                    <Link to={`/tags/${kebabCase(tag)}/`}>
+                                        {tag}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ) : null}
+            </footer>
+        </div>
+    );
+};
+
+ArtCollectionTemplate.propTypes = {
+    content: PropTypes.array,
+    contentComponent: PropTypes.func,
+    description: PropTypes.string,
+    title: PropTypes.string,
+    helmet: PropTypes.object,
+};
+
+const ArtCollection = ({ data }) => {
+    const { markdownRemark: post } = data;
+
+    return (
+        <ArtCollectionTemplate
+            content={post.frontmatter.content}
+            description={post.frontmatter.description}
+            helmet={
+                <SEO
+                    titleTemplate="%s | Art"
+                    title={post.frontmatter.title}
+                    meta={[
+                        {
+                            name: 'description',
+                            content: post.frontmatter.description,
+                        },
+                    ]}
+                />
+            }
+            tags={post.frontmatter.tags}
+            title={post.frontmatter.title}
+        />
     );
 };
 
 ArtCollection.propTypes = {
     data: PropTypes.shape({
-        markdownRemark: PropTypes.object
-    })
+        markdownRemark: PropTypes.object,
+    }),
 };
 
 export default ArtCollection;
@@ -89,9 +114,15 @@ export const pageQuery = graphql`
                 title
                 description
                 tags
-                contents {
+                content {
                     title
-                    image
+                    image {
+                        childImageSharp {
+                            fluid(maxWidth: 500, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
+                        }
+                    }
                     width
                     height
                     size
