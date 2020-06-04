@@ -12,8 +12,10 @@ const Layout = ({ children }) => {
         <div className="layout">
             <SEO title={title} titleTemplate={title} />
             <Navbar title={title} />
-            <main className="main">{children}</main>
-            <Footer title={title} social={social} />
+            <main className="main">
+                {children}
+                <Footer title={title} social={social} />
+            </main>
         </div>
     );
 };

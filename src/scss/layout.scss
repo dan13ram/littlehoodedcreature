@@ -26,7 +26,7 @@
 
 .slider:before {
     position: absolute;
-    content: "";
+    content: '';
     height: 16px;
     width: 16px;
     left: 2px;
@@ -62,35 +62,38 @@ input:checked + .slider {
     align-items: stretch;
     overflow-x: hidden;
     width: 100vw;
+    height: 100vh;
     .main {
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         width: 100vw;
-        min-height: calc(100vh - 9rem);
+        min-height: calc(100vh - 6rem);
         overflow-x: hidden;
         margin-top: 6rem;
-    }
-    .footer {
-        z-index: 10;
-        width: 100vw;
-        height: 3rem;
-        background: var(--dark-color);
-        color: var(--light-color);
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        a {
-            padding: 0.5rem;
-            font-size: 1rem;
-            text-decoration: none;
+        .footer {
+            margin-top: auto;
+            align-self: flex-end;
+            width: 100vw;
+            height: 3rem;
+            background: var(--dark-color);
             color: var(--light-color);
-            &:hover {
-                color: var(--shadow-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            a {
+                padding: 0.5rem;
+                font-size: 1rem;
+                text-decoration: none;
+                color: var(--light-color);
+                &:hover {
+                    color: var(--shadow-color);
+                }
             }
+            padding-right: 1rem;
         }
-        padding-right: 2rem;
     }
 }
 .navBar {
@@ -169,7 +172,7 @@ input:checked + .slider {
             div {
                 background-color: var(--light-color);
                 border-radius: 2px;
-                content: "";
+                content: '';
                 display: block;
                 height: 2px;
                 margin: 6px 0;
