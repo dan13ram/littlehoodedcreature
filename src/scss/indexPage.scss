@@ -6,6 +6,7 @@
         padding: 0 1rem;
         height: 3rem;
         font-size: 1.5rem;
+        margin-bottom: 0.5rem;
         border-style: none none solid none;
         border-width: 1px;
         border-color: var(--shadow-color-3);
@@ -66,7 +67,6 @@
     }
     .roll {
         height: calc(100% - 1rem);
-        grid-template-columns: 1fr 1fr 1fr;
         .rollItem {
             display: none;
             &.featured {
@@ -81,6 +81,8 @@
         section .title {
             .arrow {
                 font-size: 0.75rem;
+                opacity: 1;
+                visibility: visible;
             }
             a {
                 font-size: 1rem;

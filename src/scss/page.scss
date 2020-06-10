@@ -6,14 +6,10 @@
     width: calc(100% - 1rem);
     margin: 0.5rem;
     section {
-        margin: 0.5rem;
         display: flex;
         flex-direction: column;
-        width: calc(100% - 1rem);
+        width: calc(100%);
         justify-content: space-around;
-        background: var(--light-color);
         align-items: center;
-        box-shadow: var(--box-shadow);
-        color: var(--dark-color);
     }
 }
