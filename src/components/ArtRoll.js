@@ -5,47 +5,56 @@ import PreviewCompatibleImage from './PreviewCompatibleImage';
 import '../scss/roll.scss';
 
 class ArtRoll extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
-        const { data } = this.props;
+        const { data, featured } = this.props;
         const { edges: posts } = data.allMarkdownRemark;
+        console.log(this.props);
 
         return (
             <div className="artRoll roll">
                 {posts &&
-                    posts.map(({ node: post }) => (
-                        <article
-                            key={post.id}
-                            className={
-                                post.frontmatter.featuredItem
-                                    ? 'rollItem artCollection featured'
-                                    : 'rollItem artCollection'
-                            }
-                        >
-                            <Link to={post.fields.slug}>
-                                <header>
-                                    {post.frontmatter.featuredImage ? (
-                                        <div className="featuredImage">
-                                            <PreviewCompatibleImage
-                                                imageInfo={{
-                                                    image:
-                                                        post.frontmatter
-                                                            .featuredImage,
-                                                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                                }}
-                                            />
-                                        </div>
-                                    ) : null}
+                    posts.map(({ node: post }) => {
+                        if (featured && !post.frontmatter.featuredItem) {
+                            return null;
+                        }
+                        return (
+                            <article
+                                key={post.id}
+                                className={
+                                    post.frontmatter.featuredItem
+                                        ? 'rollItem artCollection featured'
+                                        : 'rollItem artCollection'
+                                }
+                            >
+                                {post.frontmatter.featuredImage && (
+                                    <div className="featuredImage">
+                                        <PreviewCompatibleImage
+                                            imageInfo={{
+                                                image:
+                                                    post.frontmatter
+                                                        .featuredImage,
+                                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                            }}
+                                        />
+                                    </div>
+                                )}
+                                <div className="itemContent">
                                     <p className="post-meta">
                                         {post.frontmatter.title}
                                         <span> &bull; </span>
                                         <span>{post.frontmatter.date}</span>
                                     </p>
-                                </header>
-                                <p>{post.frontmatter.description}</p>
-                                <span>View More →</span>
-                            </Link>
-                        </article>
-                    ))}
+                                    <p>{post.frontmatter.description}</p>
+                                    <Link to={post.fields.slug}>
+                                        View →
+                                    </Link>
+                                </div>
+                            </article>
+                        );
+                    })}
             </div>
         );
     }

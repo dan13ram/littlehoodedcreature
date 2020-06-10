@@ -16,34 +16,33 @@ class WorkRoll extends React.Component {
                         <article
                             key={post.id}
                             className={
-                                post.frontmatter.featuredPost
+                                post.frontmatter.featuredItem
                                     ? 'rollItem workProject featured'
                                     : 'rollItem workProject'
                             }
                         >
-                            <Link to={post.fields.slug}>
-                                <header>
-                                    {post.frontmatter.featuredImage ? (
-                                        <div className="featuredImage">
-                                            <PreviewCompatibleImage
-                                                imageInfo={{
-                                                    image:
-                                                        post.frontmatter
-                                                            .featuredImage,
-                                                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                                }}
-                                            />
-                                        </div>
-                                    ) : null}
-                                    <p className="post-meta">
-                                        {post.frontmatter.title}
-                                        <span> &bull; </span>
-                                        <span>{post.frontmatter.date}</span>
-                                    </p>
-                                </header>
+                            {post.frontmatter.featuredImage && (
+                                <div className="featuredImage">
+                                    <PreviewCompatibleImage
+                                        imageInfo={{
+                                            image:
+                                                post.frontmatter.featuredImage,
+                                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                        }}
+                                    />
+                                </div>
+                            )}
+                            <div className="itemContent">
+                                <p className="post-meta">
+                                    {post.frontmatter.title}
+                                    <span> &bull; </span>
+                                    <span>{post.frontmatter.date}</span>
+                                </p>
                                 <p>{post.frontmatter.description}</p>
-                                <span>View More →</span>
-                            </Link>
+                                <Link to={post.fields.slug}>
+                                    <span>View →</span>
+                                </Link>
+                            </div>
                         </article>
                     ))}
             </div>

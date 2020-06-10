@@ -3,7 +3,7 @@ templateKey: art-collection
 title: Charcoal Portraits
 date: 2020-05-20T00:18:20.000Z
 description: Realistic portraits made with charcoal on paper
-featuredItem: true
+featuredItem: false
 featuredImage: /img/charcoal-portraits/klopp-eyes-closed.jpeg
 content:
     - image: /img/charcoal-portraits/klopp-eyes-closed.jpeg

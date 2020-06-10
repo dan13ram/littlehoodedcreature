@@ -23,21 +23,39 @@ export const IndexPageTemplate = ({
         </section>
         <section className="content">
             <header className="title">
-                <Link to="/work">{"all work projects \u2192"}</Link>
+                <Link to="/work">
+                    {'work projects'}
+                    <span className="viewMore">{'explore all'}</span>
+                    <span className="arrow">{'\u276F'}</span>
+                </Link>
             </header>
-            <WorkRoll />
+            <div className="rollContainer">
+                <WorkRoll featured={true} />
+            </div>
         </section>
         <section className="content">
             <header className="title">
-                <Link to="/art">{"all art collections \u2192"}</Link>
+                <Link to="/art">
+                    {'art collections'}
+                    <span className="viewMore">{'explore all'}</span>
+                    <span className="arrow">{'\u276F'}</span>
+                </Link>
             </header>
-            <ArtRoll />
+            <div className="rollContainer">
+                <ArtRoll featured={true} i test="test" />
+            </div>
         </section>
         <section className="content">
             <header className="title">
-                <Link to="/blog">{"all blog posts \u2192"}</Link>
+                <Link to="/blog">
+                    {'blog posts'}
+                    <span className="viewMore">{'explore all'}</span>
+                    <span className="arrow">{'\u276F'}</span>
+                </Link>
             </header>
-            <BlogRoll />
+            <div className="rollContainer">
+                <BlogRoll featured={true} />
+            </div>
         </section>
     </div>
 );

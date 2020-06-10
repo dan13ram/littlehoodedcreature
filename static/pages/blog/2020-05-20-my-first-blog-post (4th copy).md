@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: My First Blog Post
 date: 2020-05-20T11:37:00.000Z
-featuredPost: true
+featuredPost: false
 featuredImage: /img/charcoal-portraits/bob-dylan-smoking.jpeg
 description: The first blog post must contain some data but mainly an introduction to myself and a little about what the readers can expect in my future posts.
 tags:

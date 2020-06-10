@@ -15,11 +15,32 @@
     --box-shadow: 0 5px 10px var(--shadow-color);
 }
 
+
+    *::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Track */
+    *::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    /* Handle */
+    *::-webkit-scrollbar-thumb {
+        background: var(--dark-color);
+    }
+
+    /* Handle on hover */
+    *::-webkit-scrollbar-thumb:hover {
+        background: var(--shadow-color);
+    }
+
 :focus {
     all: unset;
     border-style: solid;
     border-color: var(--primary-color);
 }
+
 
 body {
     padding: 0;

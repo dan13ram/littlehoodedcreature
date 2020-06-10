@@ -15,17 +15,5 @@
         align-items: center;
         box-shadow: var(--box-shadow);
         color: var(--dark-color);
-        .roll {
-            .rollItem {
-                background: var(--dark-color);
-                color: var(--light-color);
-                &:hover {
-                    background: var(--shadow-color);
-                }
-                a {
-                    color: var(--light-color);
-                }
-            }
-        }
     }
 }

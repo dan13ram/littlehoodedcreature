@@ -21,29 +21,31 @@ class BlogRoll extends React.Component {
                                     : 'rollItem blogPost'
                             }
                         >
-                            <Link to={post.fields.slug}>
-                                <header>
-                                    {post.frontmatter.featuredImage ? (
-                                        <div className="featuredImage">
-                                            <PreviewCompatibleImage
-                                                imageInfo={{
-                                                    image:
-                                                        post.frontmatter
-                                                            .featuredImage,
-                                                    alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                                }}
-                                            />
-                                        </div>
-                                    ) : null}
-                                    <p className="post-meta">
-                                        {post.frontmatter.title}
-                                        <span> &bull; </span>
-                                        <span>{post.frontmatter.date}</span>
-                                    </p>
-                                </header>
-                                <p>{post.excerpt}</p>
-                                <span>Keep Reading →</span>
-                            </Link>
+                            {post.frontmatter.featuredImage && (
+                                <div className="featuredImage">
+                                    <PreviewCompatibleImage
+                                        imageInfo={{
+                                            image:
+                                                post.frontmatter.featuredImage,
+                                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                        }}
+                                    />
+                                </div>
+                            )}
+                            <div className="itemContent">
+                                <p className="post-meta">
+                                    {post.frontmatter.title}
+                                    <span> &bull; </span>
+                                    <span>{post.frontmatter.date}</span>
+                                </p>
+                                <p>
+                                    {post.frontmatter.description ||
+                                        post.excerpt}
+                                </p>
+                                <Link to={post.fields.slug}>
+                                    <span>Read →</span>
+                                </Link>
+                            </div>
                         </article>
                     ))}
             </div>
@@ -78,6 +80,7 @@ export default () => (
                             }
                             frontmatter {
                                 title
+                                description
                                 templateKey
                                 date(formatString: "MMMM DD, YYYY")
                                 featuredPost

@@ -1,7 +1,7 @@
 .indexPage {
     section .title {
         display: flex;
-        justify-content: flex-end;
+        justify-content: flex-start;
         width: 100%;
         padding: 0 1rem;
         height: 3rem;
@@ -9,6 +9,19 @@
         border-style: none none solid none;
         border-width: 1px;
         border-color: var(--shadow-color-3);
+        .arrow {
+            margin-left: 0.5rem;
+            opacity: 0;
+            font-size: 1rem;
+            visibility: hidden;
+        }
+        &:hover {
+            .arrow {
+                margin-left: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+            }
+        }
         a {
             text-align: right;
             text-decoration: none;
@@ -16,10 +29,65 @@
             align-items: center;
             height: 100%;
             color: var(--dark-color);
+            .viewMore {
+                font-size: 0.8rem;
+                overflow: hidden;
+                width: 0;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.25s, width 0.5s;
+                transition-delay: all 0.25s;
+            }
             &:hover {
-                color: var(--shadow-color);
+                .viewMore {
+                    margin-left: 0.5rem;
+                    width: auto;
+                    opacity: 1;
+                    visibility: visible;
+                }
             }
         }
     }
 
+    .intro {
+        padding: 1rem;
+        display: none;
+    }
+
+    .content {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .rollContainer {
+        overflow-x: scroll;
+        overflow-y: hidden;
+        height: calc(100% - 3rem);
+        width: 100%;
+    }
+    .roll {
+        height: calc(100% - 1rem);
+        grid-template-columns: 1fr 1fr 1fr;
+        .rollItem {
+            display: none;
+            &.featured {
+                display: flex;
+            }
+        }
+    }
+}
+
+@media (max-width: 40rem) {
+    .indexPage {
+        section .title {
+            .arrow {
+                font-size: 0.75rem;
+            }
+            a {
+                font-size: 1rem;
+                .viewMore {
+                    font-size: 0.6rem;
+                }
+            }
+        }
+    }
 }

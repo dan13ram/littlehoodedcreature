@@ -158,6 +158,9 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
+            .navLogo {
+                z-index: 16;
+            }
             .switchContainer {
                 position: fixed;
                 bottom: 0;
