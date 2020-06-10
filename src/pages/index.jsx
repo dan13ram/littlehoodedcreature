@@ -6,6 +6,7 @@ import BlogRoll from '../components/BlogRoll';
 import ArtRoll from '../components/ArtRoll';
 import WorkRoll from '../components/WorkRoll';
 import '../scss/indexPage.scss';
+import '../scss/page.scss';
 
 export const IndexPageTemplate = ({
     // image,
@@ -13,7 +14,7 @@ export const IndexPageTemplate = ({
     heading,
     mainpitch,
 }) => (
-    <div className="indexPage">
+    <div className="indexPage page">
         <section className="intro">
             <h1>{title}</h1>
             <h1>{heading}</h1>
@@ -21,19 +22,22 @@ export const IndexPageTemplate = ({
             <h3>{mainpitch.description}</h3>
         </section>
         <section className="content">
-            <h3>Latest work</h3>
+            <header className="title">
+                <Link to="/work">{"all work projects \u2192"}</Link>
+            </header>
             <WorkRoll />
-            <Link to="/work">See more</Link>
         </section>
         <section className="content">
-            <h3>Latest art</h3>
+            <header className="title">
+                <Link to="/art">{"all art collections \u2192"}</Link>
+            </header>
             <ArtRoll />
-            <Link to="/art">See more</Link>
         </section>
         <section className="content">
-            <h3>Latest blog</h3>
+            <header className="title">
+                <Link to="/blog">{"all blog posts \u2192"}</Link>
+            </header>
             <BlogRoll />
-            <Link to="/blog">Read more</Link>
         </section>
     </div>
 );

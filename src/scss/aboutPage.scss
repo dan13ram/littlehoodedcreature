@@ -1,15 +1,9 @@
 // AboutPage
 
 .aboutPage {
-    margin: 1rem;
-    display: flex;
-    flex-direction: column;
-    width: calc(100vw - 10rem);
-    justify-content: space-around;
-    background: var(--light-color);
-    align-items: center;
-    padding: 1rem;
-    box-shadow: var(--box-shadow);
+    .about-me {
+        padding: 1rem;
+    }
     .avatar {
         border-radius: 50%;
         border-style: solid;
@@ -18,29 +12,5 @@
     }
     .content {
         text-align: center;
-        max-width: 50rem;
-    }
-    .intro {
-        a {
-            display: block;
-            text-decoration: none;
-            color: var(--dark-color);
-            display: flex;
-            align-items: center;
-            cursor: ne-resize;
-            &:hover {
-                color: var(--shadow-color);
-            }
-            .icon {
-                font-size: 1.5rem;
-                margin-right: 0.5rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 60rem) {
-    .aboutPage {
-        width: calc(100vw - 2rem);
     }
 }

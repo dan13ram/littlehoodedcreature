@@ -1,31 +1,25 @@
 .indexPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    width: 100vw;
-    section {
-        margin: 2rem;
+    section .title {
         display: flex;
-        flex-direction: column;
-        width: calc(100vw - 4rem);
-        justify-content: space-around;
-        background: var(--light-color);
-        align-items: center;
-        padding: 1rem;
-        box-shadow: var(--box-shadow);
-        color: var(--dark-color);
-        .roll {
-            .rollItem {
-                background: var(--dark-color);
-                color: var(--light-color);
-                &:hover {
-                    background: var(--shadow-color);
-                }
-                a {
-                    color: var(--light-color);
-                }
+        justify-content: flex-end;
+        width: 100%;
+        padding: 0 1rem;
+        height: 3rem;
+        font-size: 1.5rem;
+        border-style: none none solid none;
+        border-width: 1px;
+        border-color: var(--shadow-color-3);
+        a {
+            text-align: right;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            color: var(--dark-color);
+            &:hover {
+                color: var(--shadow-color);
             }
         }
     }
+
 }

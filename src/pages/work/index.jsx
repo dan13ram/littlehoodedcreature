@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import WorkRoll from '../../components/WorkRoll';
 import SEO from '../../components/SEO';
-import '../../scss/workPage.scss';
+import '../../scss/page.scss';
 
 const WorkPage = ({ data }) => (
-    <div className="workPage">
+    <div className="workPage page">
         <SEO title={`Work`} />
-        <div className="intro">Check what Vitalik has written</div>
-        <div className="content">
+        {/* <section className="intro">Check what Vitalik has written</section> */}
+        <section className="content">
             <WorkRoll />
-        </div>
+        </section>
     </div>
 );
 export default WorkPage;

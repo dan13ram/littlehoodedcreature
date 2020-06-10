@@ -2,15 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import BlogRoll from '../../components/BlogRoll';
 import SEO from '../../components/SEO';
-import '../../scss/blogPage.scss';
+import '../../scss/page.scss';
 
 const BlogPage = ({ data }) => (
-    <div className="blogPage">
+    <div className="blogPage page">
         <SEO title={`Blog`} />
-        <div className="intro">Check what Vitalik has written</div>
-        <div className="content">
+        {/* <section className="intro">Check what Vitalik has written</section> */}
+        <section className="content">
             <BlogRoll />
-        </div>
+        </section>
     </div>
 );
 export default BlogPage;

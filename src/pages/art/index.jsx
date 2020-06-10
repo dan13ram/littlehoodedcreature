@@ -2,14 +2,14 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import ArtRoll from '../../components/ArtRoll';
 import SEO from '../../components/SEO';
-import '../../scss/artPage.scss';
+import '../../scss/page.scss';
 
 const ArtPage = ({ data }) => (
-    <div className="artPage">
+    <div className="artPage page">
         <SEO title={`Art`} />
-        <div className="content">
+        <section className="content">
             <ArtRoll />
-        </div>
+        </section>
     </div>
 );
 export default ArtPage;

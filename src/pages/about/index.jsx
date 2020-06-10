@@ -5,12 +5,7 @@ import SEO from '../../components/SEO';
 import useSiteMetadata from '../../components/SiteMetadata';
 import Content, { HTMLContent } from '../../components/Content';
 import Image from 'gatsby-image';
-
-import { Icon } from '@iconify/react';
-import instagramOutlined from '@iconify/icons-ant-design/instagram-outlined';
-import twitterOutlined from '@iconify/icons-ant-design/twitter-outlined';
-import linkedinOutlined from '@iconify/icons-ant-design/linkedin-outlined';
-import githubOutlined from '@iconify/icons-ant-design/github-outlined';
+import '../../scss/page.scss';
 import '../../scss/aboutPage.scss';
 
 export const AboutPageTemplate = ({
@@ -23,40 +18,16 @@ export const AboutPageTemplate = ({
     const { author, social } = useSiteMetadata();
 
     return (
-        <div className="aboutPage">
+        <div className="aboutPage page">
             <SEO title={`About`} />
-            <Image className="avatar" fixed={fixedAvatar} alt={author.name} />
-            <PageContent className="content" content={content} />
-            <div className="intro">
-                <a
-                    href={`https://github.com/${social.github}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Icon className="icon" icon={githubOutlined} /> Github
-                </a>
-                <a
-                    href={`https://instagram.com/${social.instagram}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Icon className="icon" icon={instagramOutlined} /> Instagram
-                </a>
-                <a
-                    href={`https://twitter.com/${social.twitter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Icon className="icon" icon={twitterOutlined} /> Twitter
-                </a>
-                <a
-                    href={`https://linkedin.com/in/${social.linkedIn}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Icon className="icon" icon={linkedinOutlined} /> LinkedIn
-                </a>
-            </div>
+            <section className="about-me">
+                <Image
+                    className="avatar"
+                    fixed={fixedAvatar}
+                    alt={author.name}
+                />
+                <PageContent className="content" content={content} />
+            </section>
         </div>
     );
 };
