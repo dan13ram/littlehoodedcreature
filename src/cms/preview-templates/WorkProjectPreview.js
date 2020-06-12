@@ -6,10 +6,11 @@ const WorkProjectPreview = ({ entry, widgetFor }) => {
     const tags = entry.getIn(['data', 'tags']);
     return (
         <WorkProjectTemplate
-            content={widgetFor('body')}
-            description={entry.getIn(['data', 'description'])}
             tags={tags && tags.toJS()}
             title={entry.getIn(['data', 'title'])}
+            description={entry.getIn(['data', 'description'])}
+            liveUrl={entry.getIn(['data', 'liveUrl'])}
+            codeUrl={entry.getIn(['data', 'codeUrl'])}
         />
     );
 };

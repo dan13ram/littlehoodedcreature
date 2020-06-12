@@ -6,5 +6,4 @@ mainpitch:
     title: Who am I
     description: I'm a full-stack + ethereum developer + artist
 description: Give me feedback
-featuredImage: /img/profile-pic.jpg
 ---

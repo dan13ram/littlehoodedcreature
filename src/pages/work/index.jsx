@@ -9,6 +9,7 @@ const WorkPage = ({ data }) => (
         <SEO title={`Work`} />
         {/* <section className="intro">Check what Vitalik has written</section> */}
         <section className="content">
+            <div className="title">my work</div>
             <WorkRoll />
         </section>
     </div>

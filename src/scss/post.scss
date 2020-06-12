@@ -1,7 +1,6 @@
 .post {
     margin: 0.5rem;
-    max-width: calc(100% - 1rem);
-    width: 50rem;
+    width: calc(100% - 1rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,19 +8,11 @@
     .container {
         width: 100%;
         header {
-            border-radius: 1rem;
             width: calc(100% - 2rem);
             margin: 1rem;
-            &::after {
-                opacity: 0.5;
-                max-width: 100%;
-                background-color: var(--shadow-color);
-                content: '';
-                display: block;
-                height: 1px;
-                margin: 5px 5% 5px 5%;
-                transition: all 0.5s ease-in-out;
-            }
+            border-style: none none solid none;
+            border-width: 1px;
+            border-color: var(--shadow-color-3);
         }
         .content {
             margin: 1rem;
@@ -31,17 +22,11 @@
             }
             img {
                 max-width: 100%;
+                border-radius: 1rem;
             }
-            &::after {
-                opacity: 0.5;
-                max-width: 100%;
-                background-color: var(--shadow-color);
-                content: '';
-                display: block;
-                height: 1px;
-                margin: 5px 5% 5px 5%;
-                transition: all 0.5s ease-in-out;
-            }
+            border-style: none none solid none;
+            border-width: 1px;
+            border-color: var(--shadow-color-3);
         }
         background: var(--light-color);
     }

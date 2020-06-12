@@ -9,6 +9,7 @@ const BlogPage = ({ data }) => (
         <SEO title={`Blog`} />
         {/* <section className="intro">Check what Vitalik has written</section> */}
         <section className="content">
+            <div className="title">my blog</div>
             <BlogRoll />
         </section>
     </div>

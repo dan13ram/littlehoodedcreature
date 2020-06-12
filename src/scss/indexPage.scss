@@ -4,16 +4,6 @@
         display: none;
     }
     section .title {
-        display: flex;
-        justify-content: flex-start;
-        width: calc(100% - 1rem);
-        padding: 0 1rem;
-        height: 3rem;
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-        border-style: none none solid none;
-        border-width: 1px;
-        border-color: var(--shadow-color-3);
         .arrow {
             margin-left: 0.5rem;
             opacity: 0;

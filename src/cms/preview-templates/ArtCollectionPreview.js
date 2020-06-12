@@ -4,12 +4,15 @@ import { ArtCollectionTemplate } from '../../templates/art-collection';
 
 const ArtCollectionPreview = ({ entry, widgetFor }) => {
     const tags = entry.getIn(['data', 'tags']);
+    const entryContent = entry.getIn(['data', 'content']);
+    const content = entryContent ? entryContent.toJS() : [];
+
     return (
         <ArtCollectionTemplate
-            content={widgetFor('body')}
-            description={entry.getIn(['data', 'description'])}
+            content={content}
             tags={tags && tags.toJS()}
             title={entry.getIn(['data', 'title'])}
+            description={entry.getIn(['data', 'description'])}
         />
     );
 };

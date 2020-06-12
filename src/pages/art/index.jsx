@@ -8,6 +8,7 @@ const ArtPage = ({ data }) => (
     <div className="artPage page">
         <SEO title={`Art`} />
         <section className="content">
+            <div className="title">my art</div>
             <ArtRoll />
         </section>
     </div>

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
-import Image from 'gatsby-image';
 import SEO from '../components/SEO';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
 import '../scss/post.scss';
 
 export const ArtCollectionTemplate = ({
@@ -30,10 +30,13 @@ export const ArtCollectionTemplate = ({
                             {content.map((item, index) => (
                                 <div key={index} className="contentItem">
                                     <p>{item.title}</p>
-                                    <Image
-                                        className="avatar"
-                                        fluid={item.image.childImageSharp.fluid}
-                                        alt={item.title}
+                                    <p>{item.description}</p>
+                                    <PreviewCompatibleImage
+                                        className="contentImage"
+                                        imageInfo={{
+                                            image: item.image,
+                                            alt: item.title,
+                                        }}
                                     />
                                     <p>{item.width}</p>
                                     <p>{item.height}</p>
@@ -49,7 +52,7 @@ export const ArtCollectionTemplate = ({
                     <div>
                         <h4>Tags</h4>
                         <ul className="taglist">
-                            {tags.map((tag) => (
+                            {tags.map(tag => (
                                 <li key={tag + `tag`}>
                                     <Link to={`/tags/${kebabCase(tag)}/`}>
                                         {tag}
@@ -65,11 +68,11 @@ export const ArtCollectionTemplate = ({
 };
 
 ArtCollectionTemplate.propTypes = {
-    content: PropTypes.array,
-    contentComponent: PropTypes.func,
-    description: PropTypes.string,
     title: PropTypes.string,
+    description: PropTypes.string,
+    content: PropTypes.array,
     helmet: PropTypes.object,
+    tags: PropTypes.array,
 };
 
 const ArtCollection = ({ data }) => {
@@ -116,6 +119,7 @@ export const pageQuery = graphql`
                 tags
                 content {
                     title
+                    description
                     image {
                         childImageSharp {
                             fluid(maxWidth: 500, quality: 100) {

@@ -20,7 +20,7 @@ local_backend: true
 collections:
     - name: "work"
       label: "Work"
-      folder: "src/pages/work"
+      folder: "static/pages/work"
       create: true
       slug: "{{slug}}"
       fields:
@@ -31,15 +31,16 @@ collections:
               default: "work-project",
             }
           - { label: "Title", name: "title", widget: "string" }
+          - { label: "LiveUrl", name: "liveUrl", widget: "string" }
+          - { label: "CodeUrl", name: "codeUrl", widget: "string" }
           - { label: "Publish Date", name: "date", widget: "datetime" }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Featured Item", name: "featuredItem", widget: "boolean" }
           - { label: "Featured Image", name: "featuredImage", widget: image }
-          - { label: "Body", name: "body", widget: "markdown" }
           - { label: "Tags", name: "tags", widget: "list" }
     - name: "art"
       label: "Art"
-      folder: "src/pages/art"
+      folder: "static/pages/art"
       create: true
       slug: "{{slug}}"
       fields:
@@ -65,7 +66,7 @@ collections:
                 - { label: "Description", name: "description", widget: "text" }
     - name: "blog"
       label: "Blog"
-      folder: "src/pages/blog"
+      folder: "static/pages/blog"
       create: true
       slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
       fields:
@@ -86,7 +87,7 @@ collections:
     - name: "pages"
       label: "Pages"
       files:
-          - file: "src/pages/index.md"
+          - file: "static/pages/index.md"
             label: "Landing Page"
             name: "index"
             fields:
@@ -97,9 +98,7 @@ collections:
                     default: "index-page",
                   }
                 - { label: Title, name: title, widget: string }
-                - { label: Image, name: image, widget: image }
                 - { label: Heading, name: heading, widget: string }
-                - { label: Subheading, name: subheading, widget: string }
                 - {
                     label: Mainpitch,
                     name: mainpitch,
@@ -115,7 +114,7 @@ collections:
                         ],
                   }
                 - { label: Description, name: description, widget: string }
-          - file: "src/pages/about/index.md"
+          - file: "static/pages/about/index.md"
             label: "About Page"
             name: "about"
             fields:
