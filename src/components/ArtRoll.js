@@ -21,7 +21,7 @@ class ArtRoll extends React.Component {
                             return null;
                         }
                         return (
-                            <article
+                            <div
                                 key={post.id}
                                 className={
                                     post.frontmatter.featuredItem
@@ -29,29 +29,31 @@ class ArtRoll extends React.Component {
                                         : 'rollItem artCollection'
                                 }
                             >
-                                <div className="featuredImage">
-                                    <PreviewCompatibleImage
-                                        imageInfo={{
-                                            image:
-                                                post.frontmatter.featuredImage,
-                                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                        }}
-                                    />
-                                </div>
-                                <div className="itemContainer">
-                                    <div className="itemContent">
-                                        <p className="center itemTitle">
-                                            {post.frontmatter.title}
-                                        </p>
-                                        <p className="center itemDate">
-                                            {post.frontmatter.date}
-                                        </p>
-                                        <Link to={post.fields.slug}>
-                                            View {'\u276F'}
-                                        </Link>
+                                <div className="rollInner">
+                                    <div className="featuredImage">
+                                        <PreviewCompatibleImage
+                                            imageInfo={{
+                                                image:
+                                                    post.frontmatter.featuredImage,
+                                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                            }}
+                                        />
+                                    </div>
+                                    <div className="itemContainer">
+                                        <div className="itemContent">
+                                            <p className="center itemTitle">
+                                                {post.frontmatter.title}
+                                            </p>
+                                            <p className="center itemDate">
+                                                {post.frontmatter.date}
+                                            </p>
+                                            <Link to={post.fields.slug}>
+                                                View {'\u276F'}
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
-                            </article>
+                            </div>
                         );
                     })}
             </div>

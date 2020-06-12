@@ -1,9 +1,7 @@
 .indexPage {
+    padding: 0;
     .intro {
         display: none;
-    }
-    .roll {
-        margin-bottom: 0.5rem;
     }
     section .title {
         display: flex;
@@ -56,13 +54,14 @@
     }
     .roll {
         display: grid;
-        width: auto;
-        min-width: 100%;
+        width: 100%;
         grid-template-columns: initial;
         grid-auto-flow: column;
         overflow-x: auto;
         overflow-y: hidden;
         grid-auto-columns: calc(33% - 2rem);
+        margin-bottom: 0.5rem;
+        column-gap: 0.5rem;
     }
 }
 

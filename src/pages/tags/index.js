@@ -11,7 +11,7 @@ const TagsPage = ({
         },
     },
 }) => (
-    <div className="tagsPage">
+    <div className="tagsPage page">
         <SEO title={`Tags`} />
         <h1>Tags</h1>
         <ul>

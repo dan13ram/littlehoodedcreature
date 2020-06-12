@@ -13,8 +13,7 @@
     --shadow-color: grey;
     --shadow-color-3: rgba(128, 128, 128, 0.3);
     --background-color: lightgrey;
-    --primary-color: cyan;
-    --box-shadow: 0 5px 10px var(--shadow-color);
+    --box-shadow: 5px 5px 10px var(--shadow-color);
     scroll-behavior: smooth;
 }
 
@@ -40,7 +39,7 @@
 
 :focus {
     all: unset;
-    box-shadow: 0px 0px 10px 0px var(--primary-color);
+    border: 1px solid var(--shadow-color);
 }
 
 body {
@@ -54,6 +53,13 @@ body {
     overflow-x: hidden;
     font-family: 'Consolas';
     color: var(--dark-color);
+    a {
+        text-decoration: none;
+        color: var(--dark-color);
+        &:hover {
+            color: var(--shadow-color);
+        }
+    }
 }
 
 a {

@@ -24,7 +24,7 @@ export const IndexPageTemplate = ({
             <section className="content">
                 <div className="title">
                     <Link to="/work">
-                        {'work projects'}
+                        {'peruse my work'}
                         <span className="viewMore">{'explore all'}</span>
                         <span className="arrow">{'\u276F'}</span>
                     </Link>
@@ -34,7 +34,7 @@ export const IndexPageTemplate = ({
             <section className="content">
                 <div className="title">
                     <Link to="/art">
-                        {'art collections'}
+                        {'browse my art'}
                         <span className="viewMore">{'explore all'}</span>
                         <span className="arrow">{'\u276F'}</span>
                     </Link>
@@ -44,7 +44,7 @@ export const IndexPageTemplate = ({
             <section className="content">
                 <div className="title">
                     <Link to="/blog">
-                        {'blog posts'}
+                        {'read my blog'}
                         <span className="viewMore">{'explore all'}</span>
                         <span className="arrow">{'\u276F'}</span>
                     </Link>
