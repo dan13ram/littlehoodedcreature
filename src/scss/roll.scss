@@ -1,51 +1,65 @@
 .roll {
-    width: calc(100%);
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     .rollItem {
+        transition: all 0.25s ease-in-out;
         position: relative;
-        background: var(--light-color);
         color: var(--dark-color);
         align-items: center;
-        box-shadow: var(--box-shadow);
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin: 0.5rem;
-        height: 420px;
-        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        background: var(--light-color);
         .featuredImage {
             width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            height: 100%;
             transition: all 0.25s ease-in-out;
         }
-        .itemContent {
-            z-index: 1;
+        .itemContainer {
             position: absolute;
-            overflow: hidden;
-            background: var(--light-color);
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1rem;
-            p {
-                margin: 0;
-                margin-bottom: 1rem;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            .itemContent {
+                transition: all 0.25s ease-in-out;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0.5rem;
+                z-index: 1;
+                width: 100%;
+                background: var(--light-color);
+                p {
+                    &.itemDate {
+                        font-size: 0.75rem;
+                    }
+                    text-align: center;
+                    margin: 0;
+                }
             }
         }
+        .itemDescription {
+            display: none;
+        }
         a {
-            transform: translateY(100%);
+            // transform: translateY(100%);
             margin: 0;
             text-decoration: none;
             color: var(--light-color);
             background: var(--dark-color);
             padding: 0;
             width: 100%;
-            transition: all 0.25s ease-in-out;
+            transition: opacity 0.25s ease-in-out;
+            box-shadow: var(--box-shadow);
+            text-align: center;
             &:hover {
-                background: var(--shadow-color);
+                color: var(--shadow-color);
             }
             opacity: 0;
             visibility: hidden;
@@ -60,33 +74,62 @@
                 visibility: visible;
                 transform: translateY(0%);
             }
-            .featuredImage {
-                transform: scale(1.1);
+        }
+    }
+}
+
+@media (min-width: 40rem) and (min-height: 30rem) {
+    .roll {
+        .rollItem:hover {
+            .itemContainer {
+                .itemContent {
+                    padding: 1rem;
+                    p {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            .itemDescription {
+                display: none;
             }
         }
+        .rollItem:not(:hover) {
+            .itemContainer {
+                .itemContent {
+                    // background: var(--light-color-3);
+                    // text-shadow: 2px 2px 5px var(--light-color);
+                }
+            }
+        }
+    }
+}
 
-
+@media (max-width: 40rem), (max-height: 30rem) {
+    .roll {
+        .rollItem {
+            .featuredImage {
+                margin-bottom: 4rem;
+            }
+            .itemContainer {
+                .itemContent {
+                    p {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            a {
+                height: auto;
+                padding: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+                // transform: translateY(0%);
+            }
+        }
     }
 }
 
 @media (max-width: 70rem) {
     .roll {
         grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 40rem) {
-    .roll {
-        grid-template-columns: 1fr;
-        .rollItem {
-            height: 360px;
-            a {
-                height: auto;
-                padding: 0.5rem;
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0%);
-            }
-        }
     }
 }

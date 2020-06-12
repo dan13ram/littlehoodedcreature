@@ -25,7 +25,6 @@
             width: 100%;
             img {
                 max-width: 100%;
-                height: auto;
             }
         }
         padding: 1rem;
@@ -39,5 +38,7 @@
         background: var(--light-color);
         box-shadow: var(--box-shadow);
     }
+
 }
+
 

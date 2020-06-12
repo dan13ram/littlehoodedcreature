@@ -29,28 +29,27 @@ class ArtRoll extends React.Component {
                                         : 'rollItem artCollection'
                                 }
                             >
-                                {post.frontmatter.featuredImage && (
-                                    <div className="featuredImage">
-                                        <PreviewCompatibleImage
-                                            imageInfo={{
-                                                image:
-                                                    post.frontmatter
-                                                        .featuredImage,
-                                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                            }}
-                                        />
+                                <div className="featuredImage">
+                                    <PreviewCompatibleImage
+                                        imageInfo={{
+                                            image:
+                                                post.frontmatter.featuredImage,
+                                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                                        }}
+                                    />
+                                </div>
+                                <div className="itemContainer">
+                                    <div className="itemContent">
+                                        <p className="center itemTitle">
+                                            {post.frontmatter.title}
+                                        </p>
+                                        <p className="center itemDate">
+                                            {post.frontmatter.date}
+                                        </p>
+                                        <Link to={post.fields.slug}>
+                                            View {'\u276F'}
+                                        </Link>
                                     </div>
-                                )}
-                                <div className="itemContent">
-                                    <p className="post-meta">
-                                        {post.frontmatter.title}
-                                        <span> &bull; </span>
-                                        <span>{post.frontmatter.date}</span>
-                                    </p>
-                                    <p>{post.frontmatter.description}</p>
-                                    <Link to={post.fields.slug}>
-                                        View →
-                                    </Link>
                                 </div>
                             </article>
                         );

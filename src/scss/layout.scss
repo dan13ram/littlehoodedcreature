@@ -8,24 +8,20 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow-x: hidden;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
     .main {
         position: relative;
         padding-left: 6rem;
-        float: right;
         display: flex;
         flex-direction: column;
         width: 100%;
-        min-height: 100vh;
-        height: auto;
-        overflow-x: hidden;
+        min-height: 100%;
         .footer {
             margin-top: auto;
             width: 100%;
-            min-height: 4rem;
-            height: 4rem;
             background: var(--dark-color);
             color: var(--light-color);
             display: flex;
@@ -50,12 +46,21 @@
         .main {
             padding-left: 0;
             .footer {
+                min-height: 4rem;
                 z-index: 10;
                 display: flex;
                 margin: auto auto 0 auto;
                 width: 0;
                 justify-content: center;
             }
+        }
+    }
+}
+
+@media (min-width: 40rem) and (max-height: 30rem) {
+    .layout {
+        .main {
+            padding-left: 4rem;
         }
     }
 }

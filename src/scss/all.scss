@@ -1,3 +1,5 @@
+@import 'switch.scss';
+
 *,
 *::after,
 *::before {
@@ -7,40 +9,40 @@
 :root {
     --dark-color: black;
     --light-color: white;
+    --light-color-3: rgb(255, 255, 255, 0.3);
     --shadow-color: grey;
-    --shadow-color: grey;
-    --shadow-color-3: rgba(128,128,128,0.3);
+    --shadow-color-3: rgba(128, 128, 128, 0.3);
     --background-color: lightgrey;
     --primary-color: cyan;
     --box-shadow: 0 5px 10px var(--shadow-color);
+    scroll-behavior: smooth;
 }
 
+*::-webkit-scrollbar {
+    width: 0.25rem;
+    height: 0.25rem;
+}
 
-    *::-webkit-scrollbar {
-        width: 5px;
-    }
+/* Track */
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
 
-    /* Track */
-    *::-webkit-scrollbar-track {
-        background: transparent;
-    }
+/* Handle */
+*::-webkit-scrollbar-thumb {
+    background: var(--dark-color);
+}
 
-    /* Handle */
-    *::-webkit-scrollbar-thumb {
-        background: var(--dark-color);
-    }
-
-    /* Handle on hover */
-    *::-webkit-scrollbar-thumb:hover {
-        background: var(--shadow-color);
-    }
+/* Handle on hover */
+*::-webkit-scrollbar-thumb:hover {
+    background: var(--shadow-color);
+}
 
 :focus {
     all: unset;
     border-style: solid;
     border-color: var(--primary-color);
 }
-
 
 body {
     padding: 0;
@@ -51,7 +53,7 @@ body {
     display: flex;
     position: relative;
     overflow-x: hidden;
-    font-family: "Consolas";
+    font-family: 'Consolas';
     color: var(--dark-color);
 }
 
@@ -63,10 +65,9 @@ a {
 }
 
 @font-face {
-    font-family: "Consolas";
-    src: url("../fonts/Consolas.woff2") format("woff2");
+    font-family: 'Consolas';
+    src: url('../fonts/Consolas.woff2') format('woff2');
 }
-
 
 // Common Components
 

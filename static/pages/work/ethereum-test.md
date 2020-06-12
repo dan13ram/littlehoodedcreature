@@ -1,10 +1,10 @@
 ---
 templateKey: work-project
-title: Vahanam
+title: Ethereum
 date: 2020-05-20T00:18:20.000Z
 description: Decentralized Supply Chain Platform
-featuredItem: false
-featuredImage: /img/vahanam/landing.png
+featuredItem: true
+featuredImage: /img/work/ethereum.jpg
 liveUrl: testset.com
 codeUrl: github,/asd
 tags:

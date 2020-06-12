@@ -15,48 +15,42 @@ export const IndexPageTemplate = ({
     mainpitch,
 }) => (
     <div className="indexPage page">
-        <section className="intro">
-            <h1>{title}</h1>
-            <h1>{heading}</h1>
-            <h1>{mainpitch.title}</h1>
-            <h3>{mainpitch.description}</h3>
-        </section>
-        <section className="content">
-            <header className="title">
-                <Link to="/work">
-                    {'work projects'}
-                    <span className="viewMore">{'explore all'}</span>
-                    <span className="arrow">{'\u276F'}</span>
-                </Link>
-            </header>
-            <div className="rollContainer">
-                <WorkRoll featured={true} />
-            </div>
-        </section>
-        <section className="content">
-            <header className="title">
-                <Link to="/art">
-                    {'art collections'}
-                    <span className="viewMore">{'explore all'}</span>
-                    <span className="arrow">{'\u276F'}</span>
-                </Link>
-            </header>
-            <div className="rollContainer">
-                <ArtRoll featured={true} i test="test" />
-            </div>
-        </section>
-        <section className="content">
-            <header className="title">
-                <Link to="/blog">
-                    {'blog posts'}
-                    <span className="viewMore">{'explore all'}</span>
-                    <span className="arrow">{'\u276F'}</span>
-                </Link>
-            </header>
-            <div className="rollContainer">
-                <BlogRoll featured={true} />
-            </div>
-        </section>
+            <section className="intro">
+                <h1>{title}</h1>
+                <h1>{heading}</h1>
+                <h1>{mainpitch.title}</h1>
+                <h3>{mainpitch.description}</h3>
+            </section>
+            <section className="content">
+                <div className="title">
+                    <Link to="/work">
+                        {'work projects'}
+                        <span className="viewMore">{'explore all'}</span>
+                        <span className="arrow">{'\u276F'}</span>
+                    </Link>
+                </div>
+                <WorkRoll />
+            </section>
+            <section className="content">
+                <div className="title">
+                    <Link to="/art">
+                        {'art collections'}
+                        <span className="viewMore">{'explore all'}</span>
+                        <span className="arrow">{'\u276F'}</span>
+                    </Link>
+                </div>
+                <ArtRoll />
+            </section>
+            <section className="content">
+                <div className="title">
+                    <Link to="/blog">
+                        {'blog posts'}
+                        <span className="viewMore">{'explore all'}</span>
+                        <span className="arrow">{'\u276F'}</span>
+                    </Link>
+                </div>
+                <BlogRoll />
+            </section>
     </div>
 );
 

@@ -1,10 +1,10 @@
 ---
 templateKey: work-project
-title: Vahanam
+title: Blockchain 1
 date: 2020-05-20T00:18:20.000Z
-description: Decentralized Supply Chain Platform
-featuredItem: false
-featuredImage: /img/vahanam/landing.png
+description: Test
+featuredItem: true
+featuredImage: /img/work/blockchain-1.webp
 liveUrl: testset.com
 codeUrl: github,/asd
 tags:

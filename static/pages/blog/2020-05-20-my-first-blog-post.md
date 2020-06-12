@@ -10,8 +10,7 @@ tags:
     - testing
 ---
 
-Hello guys, welcome to my blog! This is my first post and might seem dumb, cause I am!
-And I'm happy to be dumb because I know I can be smarter. If I decided I am smart, then i would never want to explore anything more, or expand my abilities. But knowing and accepting that I'm limited makes me more conscious and selective as well as explorative in my approach to understanding life.
+Hello guys, welcome to my blog! 
 
 # Hello world!
 
@@ -25,7 +24,7 @@ I can add todo notes like so
 
 -   Make website
 -   Write Intro
--   Join trojan Dao
+-   Add Content
 
 I can also make numbered nodes like so
 
