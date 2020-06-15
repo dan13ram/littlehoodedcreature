@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
             <SEO title={title} titleTemplate={title} />
             <Navbar title={title} />
             <main className="main">
-                {children}
+                <div className="pageContainer" id="top">{children}</div>
                 <Footer title={title} social={social} />
             </main>
         </div>

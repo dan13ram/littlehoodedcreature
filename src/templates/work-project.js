@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
@@ -58,6 +58,9 @@ WorkProjectTemplate.propTypes = {
 };
 
 const WorkProject = ({ data }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const {
         markdownRemark: {
             frontmatter: { title, description, tags, liveUrl, codeUrl },

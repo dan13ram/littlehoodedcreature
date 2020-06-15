@@ -4,6 +4,7 @@
 *::after,
 *::before {
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 :root {
@@ -14,7 +15,6 @@
     --shadow-color-3: rgba(128, 128, 128, 0.3);
     --background-color: lightgrey;
     --box-shadow: 0.2rem 0.2rem 0.6rem var(--shadow-color);
-    scroll-behavior: smooth;
 }
 
 *::-webkit-scrollbar {
@@ -42,12 +42,17 @@
     border: 1px solid var(--shadow-color);
 }
 
+html {
+    height: 100%;
+    overflow: auto;
+}
+
 body {
     padding: 0;
     margin: 0;
     background: var(--background-color);
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     display: flex;
     position: relative;
     overflow-x: hidden;

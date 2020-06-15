@@ -111,6 +111,26 @@
     }
 }
 
+@media (max-width: 30rem) {
+    .roll {
+        .rollItem {
+            .itemContainer {
+                .itemContent {
+                    p {
+                        font-size: 0.8rem;
+                        &.itemDate {
+                            font-size: 0.6rem;
+                        }
+                    }
+                    a {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 40rem), (max-height: 30rem) {
     .roll {
         .rollItem {

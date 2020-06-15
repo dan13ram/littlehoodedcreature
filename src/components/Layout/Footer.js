@@ -4,7 +4,12 @@ import { Link } from 'gatsby';
 const Footer = ({ title }) => {
     return (
         <footer className="footer">
-            © <Link to={`/`}>{title}</Link> {new Date().getFullYear()}
+            <a href="#top" className="top">
+                {'\ufe3f'}
+            </a>
+            {' © '}
+            <Link to={`/`}>{title}</Link>
+            {' ' + new Date().getFullYear()}
         </footer>
     );
 };

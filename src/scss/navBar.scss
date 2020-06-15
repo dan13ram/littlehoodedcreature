@@ -16,6 +16,7 @@
         height: 6rem;
         width: 6rem;
         display: flex;
+        overflow: hidden;
         text-align: center;
         align-items: center;
         justify-content: center;
@@ -23,6 +24,10 @@
         left: 1rem;
         top: 0;
         color: var(--light-color);
+        svg {
+            height: 100%;
+            width: 100%;
+        }
         &:hover {
             color: var(--shadow-color);
         }
@@ -73,7 +78,7 @@
         flex-direction: column;
         align-items: center;
         margin-bottom: 1rem;
-        width: 100vw;
+        width: 100%;
         a {
             display: block;
             text-decoration: none;

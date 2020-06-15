@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
@@ -77,6 +77,9 @@ ArtCollectionTemplate.propTypes = {
 
 const ArtCollection = ({ data }) => {
     const { markdownRemark: post } = data;
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <ArtCollectionTemplate

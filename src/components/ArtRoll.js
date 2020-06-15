@@ -5,13 +5,9 @@ import PreviewCompatibleImage from './PreviewCompatibleImage';
 import '../scss/roll.scss';
 
 class ArtRoll extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     render() {
         const { data, featured } = this.props;
         const { edges: posts } = data.allMarkdownRemark;
-        console.log(this.props);
 
         return (
             <div className="artRoll roll">

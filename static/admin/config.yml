@@ -126,3 +126,4 @@ collections:
                   }
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Body", name: "body", widget: "markdown" }
+                - { label: "AvatarImage", name: "avatarImage", widget: "image" }

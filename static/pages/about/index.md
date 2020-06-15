@@ -2,7 +2,7 @@
 pageKey: 'about'
 path: /about
 title: About me
-featuredImage: /img/profile-pic.jpg
+avatarImage: /img/profile-pic.jpg
 ---
 
 <br />

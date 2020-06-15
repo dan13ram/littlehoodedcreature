@@ -34,7 +34,8 @@
         h4 {
             margin: 0;
         }
-        width: calc(100% - 2rem);
+        width: calc(100%);
+        padding: 0 1rem;
         background: var(--light-color);
     }
 }

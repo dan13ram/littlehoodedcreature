@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
@@ -33,7 +33,7 @@ export const BlogPostTemplate = ({
                     <div>
                         <h4>Tags</h4>
                         <ul className="taglist">
-                            {tags.map((tag) => (
+                            {tags.map(tag => (
                                 <li key={tag + `tag`}>
                                     <Link to={`/tags/${kebabCase(tag)}/`}>
                                         {tag}
@@ -59,6 +59,9 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
     const { markdownRemark: post } = data;
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <BlogPostTemplate
