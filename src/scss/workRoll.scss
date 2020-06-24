@@ -84,26 +84,26 @@
             }
         }
     }
-    &.full {
-        grid-template-columns: 1fr;
-        .rollItem {
-            .itemContainer {
-                align-items: center;
-                .itemContent {
-                    border-radius: 1rem;
-                    display: none;
-                    width: 40rem;
-                    height: 20rem;
-                    align-items: center;
-                    background: var(--light-color-8);
-                }
-            }
-        }
-    }
 }
 
 @media (min-width: 40rem) and (min-height: 30rem) {
     .workRoll {
+        &.full {
+            grid-template-columns: 1fr;
+            .rollItem {
+                .itemContainer {
+                    align-items: center;
+                    .itemContent {
+                        border-radius: 1rem;
+                        display: none;
+                        width: 40rem;
+                        height: 20rem;
+                        align-items: center;
+                        background: var(--light-color-8);
+                    }
+                }
+            }
+        }
         .rollItem {
             .itemContainer:hover {
                 .itemContent {

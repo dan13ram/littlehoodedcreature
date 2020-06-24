@@ -37,3 +37,9 @@
         }
     }
 }
+
+@media (max-width: 40rem), (max-height: 30rem) {
+    .fullToggle {
+        display: none;
+    }
+}
