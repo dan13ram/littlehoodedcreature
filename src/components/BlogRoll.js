@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
-import '../scss/roll.scss';
+import '../scss/blogRoll.scss';
 
 class BlogRoll extends React.Component {
     render() {
@@ -10,7 +10,7 @@ class BlogRoll extends React.Component {
         const { edges: posts } = data.allMarkdownRemark;
 
         return (
-            <div className="blogRoll roll">
+            <div className="blogRoll">
                 {posts &&
                     posts.map(({ node: post }) => (
                         <article

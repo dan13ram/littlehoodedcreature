@@ -38,9 +38,6 @@ export const ArtCollectionTemplate = ({
                                             alt: item.title,
                                         }}
                                     />
-                                    <p>{item.width}</p>
-                                    <p>{item.height}</p>
-                                    <p>{item.size}</p>
                                 </div>
                             ))}
                         </div>
@@ -130,9 +127,6 @@ export const pageQuery = graphql`
                             }
                         }
                     }
-                    width
-                    height
-                    size
                 }
             }
         }

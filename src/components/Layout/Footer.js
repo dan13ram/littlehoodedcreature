@@ -5,11 +5,13 @@ const Footer = ({ title }) => {
     return (
         <footer className="footer">
             <a href="#top" className="top">
-                {'\ufe3f'}
+                {'\u25b2'}
             </a>
-            {' © '}
-            <Link to={`/`}>{title}</Link>
-            {' ' + new Date().getFullYear()}
+            <div className="copyright">
+                {' © '}
+                <Link to={`/`}>{title}</Link>
+                {' ' + new Date().getFullYear()}
+            </div>
         </footer>
     );
 };

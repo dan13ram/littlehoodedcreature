@@ -25,4 +25,15 @@
         border-width: 1px;
         border-color: var(--shadow-color-3);
     }
+    .fullToggle {
+        position: fixed;
+        cursor: pointer;
+        z-index: 5;
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+        &:hover {
+            color: var(--shadow-color);
+        }
+    }
 }

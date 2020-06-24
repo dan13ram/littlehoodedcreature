@@ -1,0 +1,162 @@
+.blogRoll {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .rollItem {
+        transition: all 0.25s ease-in-out;
+        overflow: hidden;
+        border-radius: 1rem;
+        position: relative;
+        color: var(--dark-color);
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0.5rem;
+        box-shadow: var(--box-shadow);
+        background: var(--shadow-color);
+        .rollInner {
+            display: flex;
+            width: 100%;
+            height: 100%;
+        }
+        .featuredImage {
+            width: 100%;
+            height: 100%;
+            transition: all 0.25s ease-in-out;
+        }
+        .itemContainer {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            .itemContent {
+                transition: all 0.25s ease-in-out;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0.5rem;
+                z-index: 1;
+                width: 100%;
+                background: var(--light-color);
+                p {
+                    &.itemDate {
+                        font-size: 0.75rem;
+                    }
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+            .itemTitle {
+                font-weight: bold;
+            }
+            .itemDate {
+                padding-bottom: 0.5rem;
+                font-weight: bold;
+            }
+            .itemDescription {
+                border-style: solid none none none;
+                border-width: 1px;
+                border-color: var(--shadow-color-3);
+                font-weight: normal;
+                padding: 0.5rem 0;
+            }
+        }
+        a {
+            // transform: translateY(100%);
+            margin: 0;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            color: var(--light-color);
+            background: var(--dark-color);
+            padding: 0;
+            width: 100%;
+            transition: opacity 0.25s ease-in-out;
+            text-align: center;
+            &:hover {
+                color: var(--shadow-color);
+            }
+            opacity: 0;
+            visibility: hidden;
+            height: 0;
+            display: block;
+        }
+        &:hover {
+            a {
+                height: auto;
+                padding: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0%);
+            }
+        }
+    }
+}
+
+@media (min-width: 40rem) and (min-height: 30rem) {
+    .blogRoll {
+        .rollItem:hover {
+            .itemContainer {
+                .itemContent {
+                    padding: 1rem;
+                    p {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 30rem) {
+    .blogRoll {
+        .rollItem {
+            .itemContainer {
+                .itemContent {
+                    p {
+                        font-size: 0.8rem;
+                        &.itemDate {
+                            font-size: 0.6rem;
+                        }
+                    }
+                    a {
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 40rem), (max-height: 30rem) {
+    .blogRoll {
+        .rollItem {
+            .featuredImage {
+                margin-bottom: 4rem;
+            }
+            .itemContainer {
+                .itemContent {
+                    p {
+                        margin-bottom: 0.5rem;
+                    }
+                }
+            }
+            a {
+                height: auto;
+                padding: 0.5rem;
+                opacity: 1;
+                visibility: visible;
+                // transform: translateY(0%);
+            }
+        }
+    }
+}
+
+@media (max-width: 50rem) {
+    .blogRoll {
+        grid-template-columns: 1fr;
+    }
+}

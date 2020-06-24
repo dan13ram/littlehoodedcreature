@@ -7,9 +7,11 @@
     justify-content: flex-start;
     .container {
         width: 100%;
+        max-width: 50rem;
         header {
             width: calc(100% - 2rem);
             margin: 1rem;
+            color: var(--dark-color);
             border-style: none none solid none;
             border-width: 1px;
             border-color: var(--shadow-color-3);
@@ -34,7 +36,8 @@
         h4 {
             margin: 0;
         }
-        width: calc(100%);
+        width: 100%;
+        max-width: 50rem;
         padding: 0 1rem;
         background: var(--light-color);
     }

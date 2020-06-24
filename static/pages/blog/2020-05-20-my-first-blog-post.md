@@ -1,41 +1,25 @@
 ---
 templateKey: blog-post
-title: My First Blog Post
+title: Checkout my animation on vimeo
 date: 2020-05-20T11:37:00.000Z
-description: The first blog post must contain some data but mainly an
-  introduction to myself and a little about what the readers can expect in my
-  future posts.
+description: You can watch my animations on vimeo. This blog post attaches one of them.
 featuredPost: true
-featuredImage: /img/charcoal-portraits/bob-dylan-smoking.jpeg
+featuredImage: /img/sixelements.webp
 tags:
   - first
   - testing
 ---
 
-Hello guys, welcome to my blog! 
+Hello, welcome to my blog! 
 
-```
- echo "# Hello world!"
-```
-# Hello world!
-I'm writing my first blog post right now. I never thought that I would be using markdown to write my blog, but when I actually think about it there can be no better option. This is fantastic. I can write in vim and it gets directly uploaded onto my website in a nice format!
+Six elements -
+A short animation that shows 6 elements morphing into one another. A face i admire - An expression I despise - An object I wish I had - A space I want to be in/ experience - A texture I like - A space/element/object I’d like to be.
 
-I can add images like this
+You can find it on my vimeo: [here](https://vimeo.com/327434482).
 
-![Bob Dylan Smoking](/img/charcoal-portraits/bob-dylan-smoking.jpeg)
 
-I can add todo notes like so
+Or watch it below in an inframe.
 
--   Make website
--   Write Intro
--   Add Content
 
-I can also make numbered nodes like so
-
-1. This is first
-2. This is in between
-3. This should be last
-
-Hope you learnt something about markdown. Until next time!
-
-Ciao
+<iframe src="https://player.vimeo.com/video/327434482" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/327434482">Six elements</a> from <a href="https://vimeo.com/littlehoodedcreature">Varsha Narendra</a> on <a href="https://vimeo.com">Vimeo</a>.</p>

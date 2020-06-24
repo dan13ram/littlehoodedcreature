@@ -28,26 +28,6 @@ collections:
               label: "Template Key",
               name: "templateKey",
               widget: "hidden",
-              default: "work-project",
-            }
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "LiveUrl", name: "liveUrl", widget: "string" }
-          - { label: "CodeUrl", name: "codeUrl", widget: "string" }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
-          - { label: "Description", name: "description", widget: "text" }
-          - { label: "Featured Item", name: "featuredItem", widget: "boolean" }
-          - { label: "Featured Image", name: "featuredImage", widget: image }
-          - { label: "Tags", name: "tags", widget: "list" }
-    - name: "art"
-      label: "Art"
-      folder: "static/pages/art"
-      create: true
-      slug: "{{slug}}"
-      fields:
-          - {
-              label: "Template Key",
-              name: "templateKey",
-              widget: "hidden",
               default: "art-collection",
             }
           - { label: "Title", name: "title", widget: "string" }
@@ -87,33 +67,6 @@ collections:
     - name: "pages"
       label: "Pages"
       files:
-          - file: "static/pages/index.md"
-            label: "Landing Page"
-            name: "index"
-            fields:
-                - {
-                    label: "Template Key",
-                    name: "templateKey",
-                    widget: "hidden",
-                    default: "index-page",
-                  }
-                - { label: Title, name: title, widget: string }
-                - { label: Heading, name: heading, widget: string }
-                - {
-                    label: Mainpitch,
-                    name: mainpitch,
-                    widget: object,
-                    fields:
-                        [
-                            { label: Title, name: title, widget: string },
-                            {
-                              label: Description,
-                              name: description,
-                              widget: text,
-                            },
-                        ],
-                  }
-                - { label: Description, name: description, widget: string }
           - file: "static/pages/about/index.md"
             label: "About Page"
             name: "about"

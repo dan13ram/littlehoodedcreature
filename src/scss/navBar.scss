@@ -23,42 +23,54 @@
         padding: 0;
         left: 1rem;
         top: 0;
-        color: var(--light-color);
-        svg {
+        #logoSvg {
+            display: block;
+            padding: 0.5rem;
             height: 100%;
             width: 100%;
+            background: transparent;
+            path,
+            g {
+                fill: var(--light-color);
+            }
         }
         &:hover {
-            color: var(--shadow-color);
-        }
-        .logoImg {
-            width: 4rem;
+            #logoSvg {
+                path,
+                g {
+                    transition: 0.1s ease-in-out;
+                    fill: var(--shadow-color);
+                }
+            }
         }
     }
     .navToggle {
         display: none;
         cursor: pointer;
-            padding: 0;
-            margin: 0;
-            width: 1.2rem;
+        padding: 0;
+        margin: 0;
+        width: 1.2rem;
+        &::after,
+        &::before,
+        div {
+            background-color: var(--light-color);
+            border-radius: 2px;
+            content: '';
+            display: block;
+            height: 2px;
+            margin: 6px 0;
+            transition: all 0.5s ease-in-out, background-color 0.25s;
+        }
+        div {
+            width: 1rem;
+        }
+        &:hover {
             &::after,
             &::before,
             div {
-                background-color: var(--light-color);
-                border-radius: 2px;
-                content: '';
-                display: block;
-                height: 2px;
-                margin: 6px 0;
-                transition: all 0.5s ease-in-out, background-color 0.25s;
+                background-color: var(--shadow-color);
             }
-            &:hover {
-                &::after,
-                &::before,
-                div {
-                    background-color: var(--shadow-color);
-                }
-            }
+        }
     }
     .navMenu {
         display: flex;
@@ -98,7 +110,6 @@
         }
     }
 }
-
 
 @media (max-width: 40rem) {
     .navBar {

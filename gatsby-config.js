@@ -1,24 +1,25 @@
 module.exports = {
     siteMetadata: {
-        title: `dan13ram`,
+        title: `littlehoodedcreature`,
         author: {
-            name: `Dhanwanthari Ramakrishnan`,
-            summary: `Coder & Artist`,
+            name: `Varsha Naren`,
+            summary: `Film-maker & Artist`,
         },
-        description: `Personal blog and portfolio`,
-        siteUrl: `https://dan13ram.com/`,
+        description: `Film-maker & Artist`,
+        siteUrl: `https://littlehoodedcreature.com/`,
         social: {
-            twitter: `dan13ram`,
-            linkedIn: `dan13ram`,
-            instagram: `dan13ram`,
-            youtube: `dan13ram`,
-            vimeo: `dan13ram`,
-            github: `dan13ram`,
+            twitter: `littlehoodedcreature`,
+            linkedIn: `varsha-narendra`,
+            instagram: `littlehoodedcreature`,
+            youtube: `littlehoodedcreature`,
+            vimeo: `littlehoodedcreature`,
+            github: `littlehoodedcreature`,
         },
     },
     plugins: [
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
+        'gatsby-plugin-svgr',
         {
             // keep as first gatsby-source-filesystem plugin for gatsby image support
             resolve: 'gatsby-source-filesystem',
@@ -89,8 +90,8 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `dan13ram`,
-                short_name: `dan13ram`,
+                name: `littlehoodedcreature`,
+                short_name: `littlehoodedcreature`,
                 start_url: `/`,
                 //background_color: `#ffffff`,
                 //theme_color: `#663399`,

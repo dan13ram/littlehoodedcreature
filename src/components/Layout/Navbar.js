@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { applyTheme } from '../../utils/Theme';
 import useSiteMetadata from '../SiteMetadata';
-import Logo from './Logo';
+import {ReactComponent as Logo} from '../../svg/logo.svg';
 
 import { Icon } from '@iconify/react';
-import instagramOutlined from '@iconify/icons-ant-design/instagram-outlined';
-import twitterOutlined from '@iconify/icons-ant-design/twitter-outlined';
-import linkedinOutlined from '@iconify/icons-ant-design/linkedin-outlined';
-import githubOutlined from '@iconify/icons-ant-design/github-outlined';
+import instagramIcon from '@iconify/icons-ant-design/instagram-outlined';
+import vimeoIcon from '@iconify/icons-la/vimeo';
+import linkedinIcon from '@iconify/icons-la/linkedin-in';
+
+
 import '../../scss/navBar.scss';
 /* eslint-disable */
 
@@ -34,7 +35,7 @@ const Navbar = ({ title }) => {
                     toggleOpen(open => false);
                 }}
             >
-                <Logo />
+                <Logo id="logoSvg"/>
             </Link>
             <div
                 className="navMenu"
@@ -44,9 +45,6 @@ const Navbar = ({ title }) => {
             >
                 <Link className="navItem" to={`/work`}>
                     work
-                </Link>
-                <Link className="navItem" to={`/art`}>
-                    art
                 </Link>
                 <Link className="navItem" to={`/blog`}>
                     blog
@@ -67,32 +65,25 @@ const Navbar = ({ title }) => {
             </div>
             <div className="social">
                 <a
-                    href={`https://github.com/${social.github}`}
+                    href={`https://vimeo.com/${social.vimeo}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Icon className="icon" icon={githubOutlined} />
+                    <Icon className="icon" icon={vimeoIcon} />
                 </a>
                 <a
                     href={`https://instagram.com/${social.instagram}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Icon className="icon" icon={instagramOutlined} />
-                </a>
-                <a
-                    href={`https://twitter.com/${social.twitter}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <Icon className="icon" icon={twitterOutlined} />
+                    <Icon className="icon" icon={instagramIcon} />
                 </a>
                 <a
                     href={`https://linkedin.com/in/${social.linkedIn}`}
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Icon className="icon" icon={linkedinOutlined} />
+                    <Icon className="icon" icon={linkedinIcon} />
                 </a>
             </div>
             <div

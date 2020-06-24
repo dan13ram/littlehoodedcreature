@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useSiteMetadata from './SiteMetadata';
 import { Helmet } from 'react-helmet';
-import logo from '../../static/img/logo.svg';
+import logo from '../svg/logo.svg';
 import { withPrefix } from 'gatsby';
 
 const SEO = ({ description, lang, meta, title, titleTemplate }) => {

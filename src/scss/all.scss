@@ -8,12 +8,14 @@
 }
 
 :root {
-    --dark-color: black;
-    --light-color: white;
-    --light-color-3: rgb(255, 255, 255, 0.3);
-    --shadow-color: grey;
-    --shadow-color-3: rgba(128, 128, 128, 0.3);
-    --background-color: lightgrey;
+    --dark-color: #692c2f;
+    --dark-color-3: rgba(105, 44, 47, 0.3);
+    --light-color: rgba(255, 240, 240);
+    --light-color-3: rgba(255, 240, 240, 0.3);
+    --light-color-8: rgba(255, 240, 240, 0.8);
+    --shadow-color: rgba(255, 107, 147);
+    --shadow-color-3: rgba(255, 107, 147, 0.3);
+    --background-color: var(--shadow-color);
     --box-shadow: 0.2rem 0.2rem 0.6rem var(--shadow-color);
 }
 

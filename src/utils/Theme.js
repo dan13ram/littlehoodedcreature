@@ -1,25 +1,21 @@
 const darkTheme = {
-    '--dark-color': 'black',
-    '--light-color': 'white',
-    '--light-color-3': 'rgba(255,255,255,0.5)',
-    '--shadow-color': 'rgba(128,128,128)',
-    '--shadow-color-3': 'rgba(128,128,128,0.3)',
+    '--dark-color': '#692c2f',
+    '--dark-color-3': 'rgba(105, 44, 47, 0.3)',
+    '--light-color': 'rgba(255, 240, 240)',
+    '--light-color-3': 'rgba(255, 240, 240, 0.3)',
+    '--light-color-8': 'rgba(255, 240, 240, 0.8)',
+    '--shadow-color': 'rgba(255, 107, 147)',
+    '--shadow-color-3': 'rgba(255, 107, 147, 0.3)'
 };
 
-// const darkTheme = {
-//     '--dark-color': '#0F3B5C',
-//     '--light-color': '#58B2F5',
-//     '--light-color-3': 'rgba(88, 178, 245, 0.5)',
-//     '--shadow-color': '#2C73A8',
-//     '--shadow-color-3': 'rgba(44, 115, 168, 0.3)',
-// };
-
 const lightTheme = {
-    '--dark-color': 'white',
-    '--light-color': 'black',
-    '--light-color-3': 'rgba(0,0,0,0.5)',
-    '--shadow-color': 'rgba(128,128,128)',
-    '--shadow-color-3': 'rgba(128,128,128,0.3)',
+    '--light-color': '#692c2f',
+    '--light-color-3': 'rgba(105, 44, 47, 0.3)',
+    '--light-color-8': 'rgba(105, 44, 47, 0.8)',
+    '--dark-color': 'rgba(255, 240, 240)',
+    '--dark-color-3': 'rgba(255, 240, 240, 0.3)',
+    '--shadow-color': 'rgba(255, 107, 147)',
+    '--shadow-color-3': 'rgba(255, 107, 147, 0.3)'
 };
 
 export const applyTheme = (nextTheme) => {
