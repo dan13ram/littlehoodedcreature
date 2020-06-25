@@ -4,17 +4,19 @@ import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import BackgroundImage from 'gatsby-background-image';
 import '../scss/post.scss';
 
 export const ArtCollectionTemplate = ({
     title,
     description,
+    featuredImage,
     content,
     tags,
     helmet,
 }) => {
     return (
-        <div className="artCollection post">
+        <BackgroundImage className="artCollection post" fluid={featuredImage}>
             {helmet || ''}
 
             <article className="container">
@@ -60,7 +62,7 @@ export const ArtCollectionTemplate = ({
                     </div>
                 ) : null}
             </footer>
-        </div>
+        </BackgroundImage>
     );
 };
 
@@ -82,6 +84,7 @@ const ArtCollection = ({ data }) => {
         <ArtCollectionTemplate
             content={post.frontmatter.content}
             description={post.frontmatter.description}
+            featuredImage={post.frontmatter.featuredImage.childImageSharp.fluid}
             helmet={
                 <SEO
                     titleTemplate="%s | Art"
@@ -117,12 +120,19 @@ export const pageQuery = graphql`
                 title
                 description
                 tags
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 2000, quality: 100) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
                 content {
                     title
                     description
                     image {
                         childImageSharp {
-                            fluid(maxWidth: 500, quality: 100) {
+                            fluid(maxWidth: 2000, quality: 100) {
                                 ...GatsbyImageSharpFluid
                             }
                         }

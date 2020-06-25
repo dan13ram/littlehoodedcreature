@@ -12,46 +12,41 @@ class BlogRoll extends React.Component {
         return (
             <div className="blogRoll">
                 {posts &&
-                    posts.map(({ node: post }) => (
-                        <article
-                            key={post.id}
-                            className={
-                                post.frontmatter.featuredPost
-                                    ? 'rollItem blogPost featured'
-                                    : 'rollItem blogPost'
-                            }
-                        >
-                            <div className="featuredImage">
-                                <PreviewCompatibleImage
-                                    imageInfo={{
-                                        image: post.frontmatter.featuredImage,
-                                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                    }}
-                                />
-                            </div>
-                            <div className="itemContainer">
-                                <div className="itemContent">
-                                    <p className="center itemTitle">
-                                        {post.frontmatter.title}
-                                    </p>
-                                    <p className="center itemDate">
-                                        {post.frontmatter.date}
-                                    </p>
-                                    <p className="itemDescription">
-                                        {post.frontmatter.description ||
-                                            post.excerpt}
-                                    </p>
-                                    <Link to={post.fields.slug}>
-                                        Read {'\u276F'}
-                                    </Link>
-                                </div>
-                            </div>
-                        </article>
-                    ))}
+                    posts.map(({ node: post }) => <BlogPost post={post} />)}
             </div>
         );
     }
 }
+
+const BlogPost = ({ post }) => (
+    <article
+        key={post.id}
+        className={
+            post.frontmatter.featuredPost
+                ? 'rollItem blogPost featured'
+                : 'rollItem blogPost'
+        }
+    >
+        <div className="itemContainer">
+            <div className="itemHeader">
+                <span className="itemTitle">{post.frontmatter.title}</span>
+                <span className="itemDate">{post.frontmatter.date}</span>
+            </div>
+            <div className="itemImage">
+                <PreviewCompatibleImage
+                    imageInfo={{
+                        image: post.frontmatter.featuredImage,
+                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                    }}
+                />
+            </div>
+            <span className="itemDescription">{post.excerpt}</span>
+            <Link to={post.fields.slug} className="readSlab">
+                Read {'\u276F'}
+            </Link>
+        </div>
+    </article>
+);
 
 BlogRoll.propTypes = {
     data: PropTypes.shape({
@@ -73,7 +68,7 @@ export default () => (
                 ) {
                     edges {
                         node {
-                            excerpt(pruneLength: 400)
+                            excerpt(pruneLength: 300)
                             id
                             fields {
                                 slug
@@ -86,7 +81,7 @@ export default () => (
                                 featuredPost
                                 featuredImage {
                                     childImageSharp {
-                                        fluid(maxWidth: 120, quality: 100) {
+                                        fluid(maxWidth: 2000, quality: 100) {
                                             ...GatsbyImageSharpFluid
                                         }
                                     }

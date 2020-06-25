@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: flex-start;
     width: calc(100% - 1rem);
+    max-width: 70rem;
     margin: 0.5rem;
     section {
         display: flex;
@@ -38,7 +39,7 @@
     }
 }
 
-@media (max-width: 40rem), (max-height: 30rem) {
+@media (max-width: 50rem), (max-height: 30rem) {
     .fullToggle {
         display: none;
     }

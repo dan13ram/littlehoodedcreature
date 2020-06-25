@@ -4,12 +4,14 @@ import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import Content, { HTMLContent } from '../components/Content';
+import BackgroundImage from 'gatsby-background-image';
 import '../scss/post.scss';
 
 export const BlogPostTemplate = ({
     content,
     contentComponent,
     description,
+    featuredImage,
     tags,
     title,
     helmet,
@@ -17,7 +19,7 @@ export const BlogPostTemplate = ({
     const PostContent = contentComponent || Content;
 
     return (
-        <div className="blogPost post">
+        <BackgroundImage className="blogPost post" fluid={featuredImage}>
             {helmet || ''}
 
             <article className="container">
@@ -44,7 +46,7 @@ export const BlogPostTemplate = ({
                     </div>
                 ) : null}
             </footer>
-        </div>
+        </BackgroundImage>
     );
 };
 
@@ -67,6 +69,7 @@ const BlogPost = ({ data }) => {
         <BlogPostTemplate
             content={post.html}
             contentComponent={HTMLContent}
+            featuredImage={post.frontmatter.featuredImage.childImageSharp.fluid}
             description={post.frontmatter.description}
             helmet={
                 <SEO
@@ -102,6 +105,13 @@ export const pageQuery = graphql`
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title
+                featuredImage {
+                    childImageSharp {
+                        fluid(maxWidth: 2000, quality: 100) {
+                            ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
                 description
                 tags
             }
