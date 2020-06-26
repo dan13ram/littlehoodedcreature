@@ -7,14 +7,10 @@
         border-radius: 50%;
         border-style: solid;
         border-width: 2px;
-        border-color: var(--dark-color);
+        border-color: var(--light-color);
         height: 16rem;
     }
     .content {
         text-align: center;
-    }
-    section {
-        background: var(--light-color);
-        color: var(--dark-color);
     }
 }
