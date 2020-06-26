@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import { Icon } from '@iconify/react';
+import eyeIcon from '@iconify/icons-icomoon-free/eye';
 import '../scss/workRoll.scss';
 
 class WorkRoll extends React.Component {
@@ -25,8 +27,11 @@ class WorkRoll extends React.Component {
                                         : 'rollItem artCollection'
                                 }
                             >
-                                <div className="rollInner">
-                                    <div className="featuredImage">
+                                <Link
+                                    to={post.fields.slug}
+                                    className="itemContainer"
+                                >
+                                    <div className="itemImage">
                                         <PreviewCompatibleImage
                                             imageInfo={{
                                                 image:
@@ -36,20 +41,19 @@ class WorkRoll extends React.Component {
                                             }}
                                         />
                                     </div>
-                                    <div className="itemContainer">
-                                        <div className="itemContent">
-                                            <p className="center itemTitle">
-                                                {post.frontmatter.title}
-                                            </p>
-                                            <p className="center itemDate">
-                                                {post.frontmatter.date}
-                                            </p>
-                                            <Link to={post.fields.slug}>
-                                                View {'\u276F'}
-                                            </Link>
-                                        </div>
+                                    <div className="itemContent">
+                                        <p className="center itemTitle">
+                                            {post.frontmatter.title}
+                                        </p>
+                                        <p className="center itemDate">
+                                            {post.frontmatter.date}
+                                        </p>
+                                        <Icon
+                                            icon={eyeIcon}
+                                            className="eyeIcon"
+                                        />
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         );
                     })}
@@ -66,7 +70,7 @@ WorkRoll.propTypes = {
     }),
 };
 
-export default (props) => (
+export default props => (
     <StaticQuery
         query={graphql`
             query WorkRollQuery {
@@ -102,6 +106,8 @@ export default (props) => (
                 }
             }
         `}
-        render={(data, count) => <WorkRoll data={data} count={count} full={props.full}/>}
+        render={(data, count) => (
+            <WorkRoll data={data} count={count} full={props.full} />
+        )}
     />
 );

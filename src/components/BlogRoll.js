@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, graphql, StaticQuery } from 'gatsby';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
+import { Icon } from '@iconify/react';
+import eyeIcon from '@iconify/icons-icomoon-free/eye';
 import '../scss/blogRoll.scss';
 
 class BlogRoll extends React.Component {
@@ -12,7 +14,9 @@ class BlogRoll extends React.Component {
         return (
             <div className="blogRoll">
                 {posts &&
-                    posts.map(({ node: post }) => <BlogPost post={post} />)}
+                    posts.map(({ node: post }) => (
+                        <BlogPost key={post.id} post={post} />
+                    ))}
             </div>
         );
     }
@@ -20,7 +24,6 @@ class BlogRoll extends React.Component {
 
 const BlogPost = ({ post }) => (
     <article
-        key={post.id}
         className={
             post.frontmatter.featuredPost
                 ? 'rollItem blogPost featured'
@@ -42,7 +45,7 @@ const BlogPost = ({ post }) => (
             </div>
             <span className="itemDescription">{post.excerpt}</span>
             <Link to={post.fields.slug} className="readSlab">
-                Read {'\u276F'}
+                <Icon icon={eyeIcon} />
             </Link>
         </div>
     </article>

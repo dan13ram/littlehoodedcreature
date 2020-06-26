@@ -28,8 +28,6 @@
     right: 0;
     bottom: 0;
     background-color: var(--light-color);
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
     &:hover {
         background-color: var(--shadow-color);
     }

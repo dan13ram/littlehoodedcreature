@@ -8,15 +8,18 @@
 }
 
 :root {
-    --light-color: #692c2f;
-    --light-color-3: rgba(105, 44, 47, 0.3);
-    --light-color-8: rgba(105, 44, 47, 0.8);
-    --dark-color: rgba(255, 240, 240);
-    --dark-color-3: rgba(255, 240, 240, 0.3);
-    --shadow-color: rgba(194, 62, 68);
-    --shadow-color-3: rgba(194, 62, 68, 0.3);
+    --dark-color: rgba(196, 88, 93);
+    --dark-color-3: rgba(196, 88, 93, 0.3);
+    --dark-color-8: rgba(196, 88, 93, 0.8);
+    --light-color: rgba(255, 245, 245);
+    --light-color-3: rgba(255, 245, 245, 0.3);
+    --light-color-8: rgba(255, 245, 245, 0.8);
+    --shadow-color: rgba(148, 21, 26);
+    --shadow-color-3: rgba(148, 21, 26, 0.3);
     --background-color: var(--shadow-color);
     --box-shadow: 0.2rem 0.2rem 0.6rem var(--shadow-color);
+    --blog-shadow: 0rem 0rem 0rem 0.2rem var(--shadow-color);
+    --work-shadow: 0rem 0rem 2rem var(--shadow-color);
 }
 
 *::-webkit-scrollbar {
@@ -40,13 +43,23 @@
 }
 
 :focus {
-    all: unset;
-    border: 1px solid var(--shadow-color);
+    box-shadow: 0 0 0 1px var(--shadow-color);
 }
 
 html {
     height: 100%;
     overflow: auto;
+}
+
+a {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--dark-color);
+    &:hover {
+        color: var(--shadow-color);
+    }
 }
 
 body {
@@ -60,47 +73,32 @@ body {
     overflow-x: hidden;
     font-family: 'Consolas';
     color: var(--dark-color);
-    a {
-        text-decoration: none;
-        color: var(--dark-color);
-        &:hover {
-            color: var(--shadow-color);
-        }
-    }
 }
 
-a {
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 @font-face {
     font-family: 'Consolas';
     src: url('../fonts/Consolas.woff2') format('woff2');
 }
 
-// Common Components
 
-.bio {
-    display: flex;
-    flex-flow: row wrap;
-    .avatar {
-        border-radius: 50%;
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
     }
-    .intro {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 0.5rem;
-        a {
-            text-decoration: none;
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            &:hover {
-                color: var(--shadow-color);
-            }
-        }
+    20% {
+        transform: rotate(5deg);
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
     }
 }

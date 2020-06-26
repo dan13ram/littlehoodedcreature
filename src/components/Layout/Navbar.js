@@ -3,6 +3,9 @@ import { Link } from 'gatsby';
 import { applyTheme } from '../../utils/Theme';
 import useSiteMetadata from '../SiteMetadata';
 import {ReactComponent as Logo} from '../../svg/logo.svg';
+import {ReactComponent as Work} from '../../svg/work.svg';
+import {ReactComponent as Blog} from '../../svg/blog.svg';
+import {ReactComponent as About} from '../../svg/about.svg';
 
 import { Icon } from '@iconify/react';
 import instagramIcon from '@iconify/icons-ant-design/instagram-outlined';
@@ -43,14 +46,14 @@ const Navbar = ({ title }) => {
                     toggleOpen(open => false);
                 }}
             >
-                <Link className="navItem" to={`/work`}>
-                    work
+                <Link className="navItem" id="workSvg" to={`/work`}>
+                    <Work className="navSvg"/>
                 </Link>
                 <Link className="navItem" to={`/blog`}>
-                    blog
+                    <Blog className="navSvg"/>
                 </Link>
                 <Link className="navItem" to={`/about`}>
-                    about
+                    <About className="navSvg"/>
                 </Link>
             </div>
             <div className="switchContainer">

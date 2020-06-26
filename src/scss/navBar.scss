@@ -8,10 +8,13 @@
     align-items: center;
     z-index: 10;
     width: 6rem;
-    height: 100vh;
+    height: 100%;
     background: var(--dark-color);
     color: var(--light-color);
     box-shadow: var(--box-shadow);
+    .switch:hover {
+        animation: wiggle 0.5s;
+    }
     .navLogo {
         height: 6rem;
         width: 6rem;
@@ -25,20 +28,22 @@
         top: 0;
         #logoSvg {
             display: block;
-            padding: 0.5rem;
             height: 100%;
             width: 100%;
             background: transparent;
-            path,
-            g {
+            transition: 0.1s ease-in-out;
+            path {
+                stroke-width: 14;
+                stroke-miterlimit: 10;
+                stroke: var(--light-color);
                 fill: var(--light-color);
             }
         }
         &:hover {
             #logoSvg {
-                path,
-                g {
-                    transition: 0.1s ease-in-out;
+                animation: wiggle 0.5s;
+                path {
+                    stroke: var(--shadow-color);
                     fill: var(--shadow-color);
                 }
             }
@@ -76,11 +81,29 @@
         display: flex;
         flex-direction: column;
         .navItem {
-            padding: 0.5rem;
-            font-size: 1rem;
-            color: var(--light-color);
+            height: 3rem;
+            padding: 0 0.5rem;
+            &#workSvg {
+                margin-bottom: 0.5rem;
+            }
+            .navSvg {
+                display: block;
+                height: 100%;
+                width: 100%;
+                background: transparent;
+                path {
+                    stroke: var(--light-color);
+                    fill: var(--light-color);
+                }
+            }
             &:hover {
-                color: var(--shadow-color);
+                .navSvg {
+                    animation: wiggle 0.5s;
+                    path {
+                        stroke: var(--shadow-color);
+                        fill: var(--shadow-color);
+                    }
+                }
             }
         }
     }
@@ -102,6 +125,7 @@
             width: 3rem;
             height: 3rem;
             &:hover {
+                animation: wiggle 0.5s;
                 color: var(--shadow-color);
             }
             .icon {
@@ -168,8 +192,8 @@
         }
         &.open {
             z-index: 15;
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
@@ -197,24 +221,17 @@
                 transition: opacity 0.5s;
                 opacity: 1;
                 visibility: visible;
-                width: 100vw;
+                width: 100%;
                 align-items: stretch;
                 display: flex;
                 justify-content: center;
                 flex-direction: column;
                 .navItem {
-                    font-size: 1.5rem;
                     justify-content: center;
                     align-items: center;
                     display: flex;
-                    height: 4rem;
                     &:hover {
                         background: var(--light-color);
-                    }
-                    &:not(:first-child) {
-                        border-style: solid none none none;
-                        border-width: 1px;
-                        border-color: var(--shadow-color-3);
                     }
                 }
             }
@@ -235,7 +252,7 @@
         right: auto;
         width: 4rem;
         transition: height 0.25s ease-in-out;
-        height: 100vh;
+        height: 100%;
         .switchContainer {
             position: fixed;
             bottom: 3rem;
@@ -276,7 +293,7 @@
             left: auto;
             flex-direction: column;
             width: 4rem;
-            height: 100vh;
+            height: 100%;
             margin: 0;
             transition: transform 0.25s ease-in-out, opacity 0.5s ease-in-out;
             justify-content: center;
@@ -285,8 +302,8 @@
         }
         &.open {
             z-index: 15;
-            height: 100vh;
-            width: 100vw;
+            height: 100%;
+            width: 100%;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
@@ -309,7 +326,7 @@
                 }
             }
             .navMenu {
-                height: 100vh;
+                height: 100%;
                 width: calc(100% - 8rem);
                 transition: opacity 0.5s;
                 opacity: 1;
@@ -319,11 +336,9 @@
                 justify-content: center;
                 flex-direction: column;
                 .navItem {
-                    font-size: 1.5rem;
                     justify-content: center;
                     align-items: center;
                     display: flex;
-                    height: 4rem;
                     &:hover {
                         background: var(--light-color);
                     }
