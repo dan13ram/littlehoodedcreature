@@ -1,28 +1,22 @@
 .workRoll {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     .rollItem {
         transition: all 0.25s ease-in-out;
         overflow: hidden;
         position: relative;
-        color: var(--dark-color);
-        align-items: center;
         display: flex;
-        flex-direction: column;
+        align-items: center;
         justify-content: center;
         margin: 0.5rem;
-        background: var(--shadow-color);
+        height: 20rem;
         .itemContainer {
             height: 100%;
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-        }
-        .itemImage {
-            width: 100%;
-            height: 100%;
         }
         .itemContent {
             position: absolute;
@@ -47,12 +41,6 @@
                 margin: 0.5rem 0;
                 font-weight: bold;
             }
-            .eyeIcon {
-                position: absolute;
-                font-size: 1.5rem;
-                right: 0.5rem;
-                bottom: 0.5rem;
-            }
         }
         transition: all 0.25s ease-in-out;
         &:hover {
@@ -63,14 +51,39 @@
     }
 }
 
-@media (max-width: 50rem) {
+@media (max-width: 40rem) {
     .workRoll {
         grid-template-columns: 1fr;
     }
 }
 
-@media (min-width: 50rem) {
+@media (max-width: 70rem) {
+    .workRoll {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 40rem) and (min-height: 30rem)  {
     .workRoll.full {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        .rollItem {
+            scroll-snap-align: center;
+            margin: 0;
+            width: 100%;
+            height: 100vh;
+            .itemContainer,
+            .itemContainer::after,
+            .itemContainer::before {
+                background-attachment: fixed;
+            }
+            .itemContent {
+                width: calc(100% - 1rem);
+                max-width: 60rem;
+                height: 10rem;
+                bottom: 0;
+                border-radius: 0;
+            }
+        }
     }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
@@ -16,14 +16,21 @@ export const BlogPostTemplate = ({
     title,
     helmet,
 }) => {
+    const [margin, setMargin] = useState({});
+    const headerRef = useRef(null);
+    useEffect(() => {
+        setMargin(margin => ({
+            marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - 2rem)`,
+        }));
+    }, []);
     const PostContent = contentComponent || Content;
 
     return (
         <BackgroundImage className="blogPost post" fluid={featuredImage}>
             {helmet || ''}
 
-            <article className="container">
-                <header>
+            <article className="container" style={margin}>
+                <header ref={headerRef}>
                     <h1>{title}</h1>
                     <p>{description}</p>
                 </header>

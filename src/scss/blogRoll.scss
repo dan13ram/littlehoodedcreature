@@ -6,6 +6,7 @@
         word-break: break-word;
     }
     .rollItem {
+        background: var(--light-color);
         width: calc(100% - 1rem);
         padding-bottom: calc(100% - 1rem);
         margin: 0.5rem;
@@ -34,6 +35,7 @@
             justify-content: space-between;
             width: 100%;
             padding: 1rem;
+            font-size: unquote('min(1.5vw, 1rem)');
             .itemTitle {
                 font-weight: bold;
             }
@@ -47,7 +49,7 @@
             z-index: 4;
             font-weight: normal;
             padding: 1rem;
-            font-size: unquote("min(1.4vw, 1.5rem)");
+            font-size: unquote('min(1.4vw, 1rem)');
         }
         .readSlab {
             z-index: 5;
@@ -76,7 +78,13 @@
     }
 }
 
-@media (max-width: 50rem) {
+@media (min-width: 80rem) {
+    .blogRoll {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media (max-width: 40rem) {
     .blogRoll {
         grid-template-columns: 1fr;
         .rollItem {
@@ -85,6 +93,9 @@
             padding-bottom: 0;
             .itemContainer {
                 position: relative;
+            }
+            .itemHeader {
+                font-size: 1rem;
             }
             .itemDescription {
                 font-size: 1rem;

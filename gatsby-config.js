@@ -81,6 +81,7 @@ module.exports = {
         },
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,
+        `gatsby-plugin-transition-link`,
         {
             resolve: `gatsby-plugin-google-analytics`,
             options: {
@@ -93,10 +94,10 @@ module.exports = {
                 name: `littlehoodedcreature`,
                 short_name: `littlehoodedcreature`,
                 start_url: `/`,
-                //background_color: `#ffffff`,
-                //theme_color: `#663399`,
+                background_color: `#ffffff`,
+                theme_color: `#ffffff`,
                 //display: `minimal-ui`,
-                //icon: `content/assets/gatsby-icon.png`
+                icon: `static/img/logo.svg`
             },
         },
         {

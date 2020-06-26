@@ -7,17 +7,17 @@
     flex-direction: column;
     align-items: center;
     z-index: 10;
-    width: 6rem;
+    width: 4rem;
     height: 100%;
-    background: var(--dark-color);
-    color: var(--light-color);
+    color: var(--dark-color);
+    background: var(--light-color);
     box-shadow: var(--box-shadow);
     .switch:hover {
         animation: wiggle 0.5s;
     }
     .navLogo {
-        height: 6rem;
-        width: 6rem;
+        height: 4rem;
+        width: 4rem;
         display: flex;
         overflow: hidden;
         text-align: center;
@@ -35,8 +35,8 @@
             path {
                 stroke-width: 14;
                 stroke-miterlimit: 10;
-                stroke: var(--light-color);
-                fill: var(--light-color);
+                stroke: var(--primary-color);
+                fill: var(--primary-color);
             }
         }
         &:hover {
@@ -58,7 +58,7 @@
         &::after,
         &::before,
         div {
-            background-color: var(--light-color);
+            background-color: var(--dark-color);
             border-radius: 2px;
             content: '';
             display: block;
@@ -83,8 +83,10 @@
         .navItem {
             height: 3rem;
             padding: 0 0.5rem;
-            &#workSvg {
-                margin-bottom: 0.5rem;
+            &#blogSvg {
+                margin-top: 0.4rem;
+                padding-left: 0.1rem;
+                padding-right: 0.6rem;
             }
             .navSvg {
                 display: block;
@@ -92,8 +94,8 @@
                 width: 100%;
                 background: transparent;
                 path {
-                    stroke: var(--light-color);
-                    fill: var(--light-color);
+                    stroke: var(--dark-color);
+                    fill: var(--dark-color);
                 }
             }
             &:hover {
@@ -117,7 +119,7 @@
         a {
             display: block;
             text-decoration: none;
-            color: var(--light-color);
+            color: var(--dark-color);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -231,7 +233,7 @@
                     align-items: center;
                     display: flex;
                     &:hover {
-                        background: var(--light-color);
+                        background: var(--dark-color);
                     }
                 }
             }
@@ -340,7 +342,7 @@
                     align-items: center;
                     display: flex;
                     &:hover {
-                        background: var(--light-color);
+                        background: var(--dark-color);
                     }
                 }
             }

@@ -3,13 +3,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    width: calc(100% - 1rem);
-    max-width: 70rem;
-    margin: 0.5rem;
+    // max-width: 70rem;
+    width: 100%;
     section {
         display: flex;
         flex-direction: column;
-        width: calc(100%);
+        width: calc(100% - 1rem);
+        margin: 0.5rem;
         justify-content: space-around;
         align-items: center;
     }
@@ -22,6 +22,7 @@
         height: 3rem;
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
+        padding-bottom: 0.5rem;
         border-style: none none solid none;
         border-width: 1px;
         border-color: var(--shadow-color-3);
@@ -30,17 +31,31 @@
         position: fixed;
         cursor: pointer;
         z-index: 5;
-        top: 1rem;
+        top: 0.75rem;
         right: 1rem;
         font-size: 2rem;
         &:hover {
+            animation: wiggle 0.5s;
             color: var(--shadow-color);
         }
     }
 }
 
-@media (max-width: 50rem), (max-height: 30rem) {
+@media (max-width: 40rem), (max-height: 30rem) {
     .fullToggle {
         display: none;
+    }
+}
+
+@media (min-width: 40rem) and (min-height: 30rem) {
+    .full {
+        section {
+            width: 100%;
+            margin: 0;
+            .title {
+                margin: 0.5rem 1rem 0 1rem;
+                width: calc(100% - 2rem);
+            }
+        }
     }
 }

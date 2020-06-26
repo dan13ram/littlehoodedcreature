@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, StaticQuery } from 'gatsby';
-import PreviewCompatibleImage from './PreviewCompatibleImage';
-import { Icon } from '@iconify/react';
-import eyeIcon from '@iconify/icons-icomoon-free/eye';
+import { graphql, StaticQuery } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
+import BackgroundImage from 'gatsby-background-image';
 import '../scss/workRoll.scss';
 
 class WorkRoll extends React.Component {
@@ -19,28 +18,23 @@ class WorkRoll extends React.Component {
                             return null;
                         }
                         return (
-                            <div
+                            <AniLink
+                                fade
+                                to={post.fields.slug}
                                 key={post.id}
                                 className={
                                     post.frontmatter.featuredItem
-                                        ? 'rollItem artCollection featured'
-                                        : 'rollItem artCollection'
+                                        ? 'rollItem featured'
+                                        : 'rollItem'
                                 }
                             >
-                                <Link
-                                    to={post.fields.slug}
+                                <BackgroundImage
+                                    fluid={
+                                        post.frontmatter.featuredImage
+                                            .childImageSharp.fluid
+                                    }
                                     className="itemContainer"
                                 >
-                                    <div className="itemImage">
-                                        <PreviewCompatibleImage
-                                            imageInfo={{
-                                                image:
-                                                    post.frontmatter
-                                                        .featuredImage,
-                                                alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                                            }}
-                                        />
-                                    </div>
                                     <div className="itemContent">
                                         <p className="center itemTitle">
                                             {post.frontmatter.title}
@@ -48,13 +42,9 @@ class WorkRoll extends React.Component {
                                         <p className="center itemDate">
                                             {post.frontmatter.date}
                                         </p>
-                                        <Icon
-                                            icon={eyeIcon}
-                                            className="eyeIcon"
-                                        />
                                     </div>
-                                </Link>
-                            </div>
+                                </BackgroundImage>
+                            </AniLink>
                         );
                     })}
             </div>

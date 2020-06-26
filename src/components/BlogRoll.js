@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, graphql, StaticQuery } from 'gatsby';
+import { graphql, StaticQuery } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { Icon } from '@iconify/react';
 import eyeIcon from '@iconify/icons-icomoon-free/eye';
@@ -44,9 +45,9 @@ const BlogPost = ({ post }) => (
                 />
             </div>
             <span className="itemDescription">{post.excerpt}</span>
-            <Link to={post.fields.slug} className="readSlab">
+            <AniLink fade to={post.fields.slug} className="readSlab">
                 <Icon icon={eyeIcon} />
-            </Link>
+            </AniLink>
         </div>
     </article>
 );

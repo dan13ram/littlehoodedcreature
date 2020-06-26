@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { applyTheme } from '../../utils/Theme';
 import useSiteMetadata from '../SiteMetadata';
-import {ReactComponent as Logo} from '../../svg/logo.svg';
-import {ReactComponent as Work} from '../../svg/work.svg';
-import {ReactComponent as Blog} from '../../svg/blog.svg';
-import {ReactComponent as About} from '../../svg/about.svg';
+import { ReactComponent as Logo } from '../../svg/logo.svg';
+import { ReactComponent as Work } from '../../svg/work.svg';
+import { ReactComponent as Blog } from '../../svg/blog.svg';
+import { ReactComponent as About } from '../../svg/about.svg';
 
 import { Icon } from '@iconify/react';
 import instagramIcon from '@iconify/icons-ant-design/instagram-outlined';
 import vimeoIcon from '@iconify/icons-la/vimeo';
 import linkedinIcon from '@iconify/icons-la/linkedin-in';
-
 
 import '../../scss/navBar.scss';
 /* eslint-disable */
@@ -30,31 +29,32 @@ const Navbar = ({ title }) => {
 
     return (
         <nav className={open ? 'navBar open' : 'navBar'}>
-            <Link
-                to="/"
+            <AniLink
+                fade
+                to="/work"
                 className="navLogo"
                 title={title}
                 onClick={() => {
                     toggleOpen(open => false);
                 }}
             >
-                <Logo id="logoSvg"/>
-            </Link>
+                <Logo id="logoSvg" />
+            </AniLink>
             <div
                 className="navMenu"
                 onClick={() => {
                     toggleOpen(open => false);
                 }}
             >
-                <Link className="navItem" id="workSvg" to={`/work`}>
-                    <Work className="navSvg"/>
-                </Link>
-                <Link className="navItem" to={`/blog`}>
-                    <Blog className="navSvg"/>
-                </Link>
-                <Link className="navItem" to={`/about`}>
-                    <About className="navSvg"/>
-                </Link>
+                <AniLink fade className="navItem" to={`/work`}>
+                    <Work className="navSvg" />
+                </AniLink>
+                <AniLink fade className="navItem" id="blogSvg" to={`/blog`}>
+                    <Blog className="navSvg" />
+                </AniLink>
+                <AniLink fade className="navItem" to={`/about`}>
+                    <About className="navSvg" />
+                </AniLink>
             </div>
             <div className="switchContainer">
                 <label className="switch">

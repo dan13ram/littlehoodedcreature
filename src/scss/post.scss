@@ -9,6 +9,7 @@
     background-attachment: fixed;
     background-position: top center;
     background-repeat: no-repeat;
+    color: var(--dark-color);
     .container {
         margin-top: 70vh;
         background: var(--light-color);
@@ -18,7 +19,6 @@
         header {
             width: calc(100% - 2rem);
             margin: 1rem;
-            color: var(--dark-color);
             border-style: none none solid none;
             border-width: 1px;
             border-color: var(--shadow-color-3);
@@ -31,8 +31,9 @@
                 word-break: break-word;
             }
             img {
+                width: auto;
+                height: auto;
                 max-width: 100%;
-                border-radius: 1rem;
             }
         }
         background: var(--light-color);

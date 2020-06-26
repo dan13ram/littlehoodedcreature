@@ -11,7 +11,6 @@
     display: inline-block;
     width: 36px;
     height: 20px;
-    margin-right: 0.5rem;
 }
 
 .switch input {
@@ -27,7 +26,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: var(--light-color);
+    background-color: var(--primary-color);
     &:hover {
         background-color: var(--shadow-color);
     }
@@ -40,7 +39,7 @@
     width: 16px;
     left: 2px;
     bottom: 2px;
-    background-color: var(--dark-color);
+    background-color: var(--light-color);
     transition: 0.4s;
 }
 
@@ -49,7 +48,6 @@ input:checked + .slider:before {
 }
 
 input:checked + .slider {
-    background-color: var(--light-color);
     &:hover {
         background-color: var(--shadow-color);
     }

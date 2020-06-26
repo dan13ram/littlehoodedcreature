@@ -2,12 +2,21 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 const Footer = ({ title, showTop, setRef }) => {
+    const scrollToTop = () => {
+        window.setTimeout(() => {
+            document
+                .querySelector('#top')
+                .scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    };
     return (
         <footer className="footer" ref={setRef}>
             {showTop && (
-                <a href="#top" className="top">
-                    {'\u25b2'}
-                </a>
+                <div className="topContainer">
+                    <span className="top" onClick={scrollToTop}>
+                        {'\u25b2'}
+                    </span>
+                </div>
             )}
             <div className="copyright">
                 {' © '}

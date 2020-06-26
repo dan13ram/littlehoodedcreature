@@ -10,7 +10,7 @@ import exitIcon from '@iconify/icons-ant-design/fullscreen-exit-outlined';
 const WorkPage = ({ data }) => {
     const [full, toggleFull] = useState(false);
     return (
-        <div className="workPage page">
+        <div className={full ? 'workPage page full' : 'workPage page'}>
             <SEO title={`Work`} />
             {/* <section className="intro">Check what Vitalik has written</section> */}
             <section className="content">

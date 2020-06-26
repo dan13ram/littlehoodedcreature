@@ -13,6 +13,9 @@ const Layout = ({ children }) => {
     const footerRef = useRef(null);
     useLayoutEffect(() => {
         function updateFooter() {
+            window.setTimeout(() => {
+                document.querySelector("#top").scrollIntoView({ behavior: 'auto' });
+            }, 100);
             const mainHeight =
                 pageRef.current.offsetHeight + footerRef.current.offsetHeight;
             if (window.innerHeight < mainHeight) {
