@@ -2,8 +2,11 @@
 templateKey: art-collection
 title: parenting absolute
 date: 2020-05-20T00:18:20.000Z
-year: 2019-20
-description: Digital Illustrations for an informative book on parenthood and its many challenges.\nThese illustrations attempt to explain the theme of each chapter subtly using body language, form, text and symbolism and are void of facial expressions.
+description: >-
+  Digital Illustrations for an informative book on parenthood and its many
+  challenges.
+
+  These illustrations attempt to explain the theme of each chapter subtly using body language, form, text and symbolism and are void of facial expressions.
 featuredItem: true
 featuredImage: /img/parenting/building-the-right-connect.webp
 tags:
@@ -55,4 +58,5 @@ content:
   - image: /img/parenting/teach-and-learn.webp
     title: PARENTING
     description: ABSOLUTE
+year: 2019-20
 ---

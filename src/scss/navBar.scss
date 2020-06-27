@@ -82,11 +82,19 @@
         flex-direction: column;
         .navItem {
             height: 3rem;
-            padding: 0 0.5rem;
+            padding: 0;
+            &#workSvg {
+                padding-left: 0.4rem;
+                padding-right: 0.6rem;
+            }
             &#blogSvg {
                 margin-top: 0.4rem;
                 padding-left: 0.1rem;
                 padding-right: 0.6rem;
+            }
+            &#aboutSvg {
+                padding-left: 0.6rem;
+                padding-right: 0.4rem;
             }
             .navSvg {
                 display: block;
@@ -114,7 +122,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 1rem;
+        justify-content: flex-start;
+        margin-bottom: 0.25rem;
+        padding-right: 0.75rem;
         width: 100%;
         a {
             display: block;
@@ -238,6 +248,8 @@
                 }
             }
             .social {
+                margin: 0;
+                padding: 0;
                 visibility: visible;
                 opacity: 1;
             }
@@ -347,6 +359,8 @@
                 }
             }
             .social {
+                margin: 0;
+                padding: 0;
                 visibility: visible;
                 opacity: 1;
             }

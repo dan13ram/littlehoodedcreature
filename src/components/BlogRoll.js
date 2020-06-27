@@ -5,6 +5,8 @@ import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import PreviewCompatibleImage from './PreviewCompatibleImage';
 import { Icon } from '@iconify/react';
 import eyeIcon from '@iconify/icons-icomoon-free/eye';
+import multipleImageIcon from '@iconify/icons-mdi/checkbox-multiple-blank';
+
 import '../scss/blogRoll.scss';
 
 class BlogRoll extends React.Component {
@@ -23,34 +25,43 @@ class BlogRoll extends React.Component {
     }
 }
 
-const BlogPost = ({ post }) => (
-    <article
-        className={
-            post.frontmatter.featuredPost
-                ? 'rollItem blogPost featured'
-                : 'rollItem blogPost'
-        }
-    >
-        <div className="itemContainer">
-            <div className="itemHeader">
-                <span className="itemTitle">{post.frontmatter.title}</span>
-                <span className="itemDate">{post.frontmatter.date}</span>
+const BlogPost = ({ post }) => {
+    const showMultipleImageIcon = post.frontmatter.featuredImages.length > 1;
+    return (
+        <article
+            className={
+                post.frontmatter.featuredPost
+                    ? 'rollItem blogPost featured'
+                    : 'rollItem blogPost'
+            }
+        >
+            <div className="itemContainer">
+                <div className="itemHeader">
+                    <span className="itemTitle">{post.frontmatter.title}</span>
+                    <span className="itemDate">{post.frontmatter.date}</span>
+                </div>
+                <div className="itemImage">
+                    <PreviewCompatibleImage
+                        imageInfo={{
+                            image: post.frontmatter.featuredImages[0].image,
+                            alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                        }}
+                    />
+                    {showMultipleImageIcon && (
+                        <Icon
+                            icon={multipleImageIcon}
+                            className="multipleImageIcon"
+                        />
+                    )}
+                </div>
+                <p className="itemDescription">{post.excerpt}</p>
+                <AniLink fade to={post.fields.slug} className="readSlab">
+                    <Icon icon={eyeIcon} />
+                </AniLink>
             </div>
-            <div className="itemImage">
-                <PreviewCompatibleImage
-                    imageInfo={{
-                        image: post.frontmatter.featuredImage,
-                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
-                    }}
-                />
-            </div>
-            <span className="itemDescription">{post.excerpt}</span>
-            <AniLink fade to={post.fields.slug} className="readSlab">
-                <Icon icon={eyeIcon} />
-            </AniLink>
-        </div>
-    </article>
-);
+        </article>
+    );
+};
 
 BlogRoll.propTypes = {
     data: PropTypes.shape({
@@ -72,7 +83,7 @@ export default () => (
                 ) {
                     edges {
                         node {
-                            excerpt(pruneLength: 300)
+                            excerpt(pruneLength: 400)
                             id
                             fields {
                                 slug
@@ -83,10 +94,15 @@ export default () => (
                                 templateKey
                                 date(formatString: "MMMM DD, YYYY")
                                 featuredPost
-                                featuredImage {
-                                    childImageSharp {
-                                        fluid(maxWidth: 2000, quality: 100) {
-                                            ...GatsbyImageSharpFluid
+                                featuredImages {
+                                    image {
+                                        childImageSharp {
+                                            fluid(
+                                                maxWidth: 2000
+                                                quality: 100
+                                            ) {
+                                                ...GatsbyImageSharpFluid
+                                            }
                                         }
                                     }
                                 }

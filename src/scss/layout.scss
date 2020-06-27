@@ -56,10 +56,10 @@
                 justify-content: center;
                 align-items: center;
                 .top {
-                    font-size: 1.75rem;
+                    font-size: 1.4rem;
                     padding: 0;
                     cursor: pointer;
-                    color: var(--primary-color);
+                    color: var(--light-color);
                     &:hover {
                         animation: wiggle 0.5s;
                         color: var(--shadow-color);
@@ -103,7 +103,10 @@
                 .copyright {
                     display: none;
                 }
-                background: var(--dark-color);
+                .topContainer .top {
+                    color: var(--dark-color);
+                }
+                background: var(--light-color);
             }
         }
     }

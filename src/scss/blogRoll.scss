@@ -1,12 +1,12 @@
 .blogRoll {
     width: 100%;
+    max-width: 60rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     p {
         word-break: break-word;
     }
     .rollItem {
-        background: var(--light-color);
         width: calc(100% - 1rem);
         padding-bottom: calc(100% - 1rem);
         margin: 0.5rem;
@@ -16,25 +16,34 @@
         .itemContainer {
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 1rem);
             display: flex;
             overflow: hidden;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            color: var(--dark-color);
+            color: var(--light-color);
         }
         .itemImage {
             width: 100%;
             height: 100%;
+            padding: 0 0.5rem;
             max-height: 50%;
             transition: all 0.25s ease-in-out;
+            position: relative;
+            .multipleImageIcon {
+                position: absolute;
+                top: 0.5rem;
+                right: 1rem;
+                color: var(--light-color);
+                font-size: 1.2rem;
+            }
         }
         .itemHeader {
             display: flex;
             justify-content: space-between;
             width: 100%;
-            padding: 1rem;
+            padding: 1rem 0.5rem 0.5rem 0.5rem;
             font-size: unquote('min(1.5vw, 1rem)');
             .itemTitle {
                 font-weight: bold;
@@ -44,12 +53,14 @@
             }
         }
         .itemDescription {
+            font-family: 'Helvetica';
             flex: 1;
-            background: var(--light-color);
+            background: var(--dark-color);
             z-index: 4;
             font-weight: normal;
-            padding: 1rem;
-            font-size: unquote('min(1.4vw, 1rem)');
+            padding: 1rem 0.5rem;
+            font-size: unquote('min(1.5vw, 1rem)');
+            word-break: break-word;
         }
         .readSlab {
             z-index: 5;
@@ -58,15 +69,15 @@
             align-items: flex-end;
             position: absolute;
             margin: 0;
-            padding: 0.5rem;
+            padding: 0.5rem 0.75rem;
             height: 100%;
             width: 100%;
             visibility: hidden;
             font-size: 1.5rem;
-            background: var(--dark-color-3);
+            background: var(--light-color-3);
             opacity: 0;
             transition: opacity 0.25s ease-in-out;
-            color: var(--dark-color);
+            color: var(--light-color);
         }
         transition: all 0.25s ease-in-out;
         &:hover {
@@ -78,11 +89,6 @@
     }
 }
 
-@media (min-width: 80rem) {
-    .blogRoll {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
 
 @media (max-width: 40rem) {
     .blogRoll {

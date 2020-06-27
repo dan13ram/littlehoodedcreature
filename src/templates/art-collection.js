@@ -4,8 +4,8 @@ import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import BackgroundImage from 'gatsby-background-image';
-import '../scss/post.scss';
+import PreviewCompatibleBackgroundImage from '../components/PreviewCompatibleBackgroundImage';
+import '../scss/artCollection.scss';
 
 export const ArtCollectionTemplate = ({
     title,
@@ -18,12 +18,23 @@ export const ArtCollectionTemplate = ({
     const [margin, setMargin] = useState({});
     const headerRef = useRef(null);
     useEffect(() => {
-        setMargin(margin => ({
-            marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - 2rem)`,
-        }));
+        window.setTimeout(() => {
+            headerRef.current &&
+                headerRef.current.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'end',
+                });
+        }, 100);
+        headerRef.current &&
+            setMargin(margin => ({
+                marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - 2.5rem)`,
+            }));
     }, []);
     return (
-        <BackgroundImage className="artCollection post" fluid={featuredImage}>
+        <PreviewCompatibleBackgroundImage
+            className="artCollection"
+            fluid={featuredImage}
+        >
             {helmet || ''}
 
             <article className="container" style={margin}>
@@ -39,7 +50,6 @@ export const ArtCollectionTemplate = ({
                                 <div key={index} className="contentItem">
                                     {/* <p>{item.title}</p> */}
                                     {/* <p>{item.description}</p> */}
-                                    <br />
                                     <PreviewCompatibleImage
                                         className="contentImage"
                                         imageInfo={{
@@ -69,7 +79,7 @@ export const ArtCollectionTemplate = ({
                     </div>
                 ) : null}
             </footer>
-        </BackgroundImage>
+        </PreviewCompatibleBackgroundImage>
     );
 };
 
@@ -91,7 +101,7 @@ const ArtCollection = ({ data }) => {
             featuredImage={post.frontmatter.featuredImage.childImageSharp.fluid}
             helmet={
                 <SEO
-                    titleTemplate="%s | Art"
+                    titleTemplate="%s | Work"
                     title={post.frontmatter.title}
                     meta={[
                         {

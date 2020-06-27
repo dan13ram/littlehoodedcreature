@@ -1,35 +1,67 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import Content, { HTMLContent } from '../components/Content';
-import BackgroundImage from 'gatsby-background-image';
-import '../scss/post.scss';
+import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import '../scss/blogPost.scss';
+import Flickity from 'flickity';
+import 'flickity/css/flickity.css';
 
 export const BlogPostTemplate = ({
     content,
     contentComponent,
     description,
-    featuredImage,
+    featuredImages,
     tags,
     title,
     helmet,
 }) => {
-    const [margin, setMargin] = useState({});
     const headerRef = useRef(null);
+    const imagesRef = useRef(null);
     useEffect(() => {
-        setMargin(margin => ({
-            marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - 2rem)`,
-        }));
-    }, []);
+        window.setTimeout(() => {
+            headerRef.current &&
+                headerRef.current.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'end',
+                });
+        }, 100);
+        if (featuredImages.length === 1) {
+            new Flickity(imagesRef.current, {
+                prevNextButtons: false,
+                pageDots: false,
+            });
+        } else {
+            new Flickity(imagesRef.current, {
+                adaptiveHeight: true
+            });
+        }
+    }, [featuredImages]);
     const PostContent = contentComponent || Content;
 
     return (
-        <BackgroundImage className="blogPost post" fluid={featuredImage}>
+        <div className="blogPost">
             {helmet || ''}
 
-            <article className="container" style={margin}>
+            <div className="blogImagesContainer">
+                <div className="blogImages main-carousel" ref={imagesRef}>
+                    {featuredImages &&
+                        featuredImages.map(featuredImage => (
+                            <div className="carousel-cell" key={featuredImage.id}>
+                                <PreviewCompatibleImage
+                                    className="imageItem"
+                                    imageInfo={{
+                                        image: featuredImage.image,
+                                        alt: title,
+                                    }}
+                                />
+                            </div>
+                        ))}
+                </div>
+            </div>
+            <article className="container">
                 <header ref={headerRef}>
                     <h1>{title}</h1>
                     <p>{description}</p>
@@ -53,7 +85,7 @@ export const BlogPostTemplate = ({
                     </div>
                 ) : null}
             </footer>
-        </BackgroundImage>
+        </div>
     );
 };
 
@@ -76,7 +108,7 @@ const BlogPost = ({ data }) => {
         <BlogPostTemplate
             content={post.html}
             contentComponent={HTMLContent}
-            featuredImage={post.frontmatter.featuredImage.childImageSharp.fluid}
+            featuredImages={post.frontmatter.featuredImages}
             description={post.frontmatter.description}
             helmet={
                 <SEO
@@ -112,10 +144,12 @@ export const pageQuery = graphql`
             frontmatter {
                 date(formatString: "MMMM DD, YYYY")
                 title
-                featuredImage {
-                    childImageSharp {
-                        fluid(maxWidth: 2000, quality: 100) {
-                            ...GatsbyImageSharpFluid
+                featuredImages {
+                    image {
+                        childImageSharp {
+                            fluid(maxWidth: 2000, quality: 100) {
+                                ...GatsbyImageSharpFluid
+                            }
                         }
                     }
                 }

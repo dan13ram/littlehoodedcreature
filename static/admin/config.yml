@@ -60,7 +60,11 @@ collections:
           - { label: "Publish Date", name: "date", widget: "datetime" }
           - { label: "Description", name: "description", widget: "text" }
           - { label: "Featured Post", name: "featuredPost", widget: "boolean" }
-          - { label: "Featured Image", name: "featuredImage", widget: image }
+          - label: "Featured Images"
+            name: "featuredImages"
+            widget: "list"
+            fields:
+                - { label: "Image", name: "image", widget: image }
           - { label: "Body", name: "body", widget: "markdown" }
           - { label: "Tags", name: "tags", widget: "list" }
 

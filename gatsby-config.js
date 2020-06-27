@@ -97,7 +97,7 @@ module.exports = {
                 background_color: `#ffffff`,
                 theme_color: `#ffffff`,
                 //display: `minimal-ui`,
-                icon: `static/img/logo.svg`
+                icon: `static/img/logo.png`
             },
         },
         {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { graphql } from 'gatsby';
 import WorkRoll from '../../components/WorkRoll';
 import SEO from '../../components/SEO';
@@ -9,6 +9,13 @@ import exitIcon from '@iconify/icons-ant-design/fullscreen-exit-outlined';
 
 const WorkPage = ({ data }) => {
     const [full, toggleFull] = useState(false);
+    useEffect(() => {
+        const currentFull = localStorage.getItem('full');
+        if (currentFull) {
+            toggleFull(full => currentFull === 'true');
+            localStorage.setItem('full', currentFull);
+        }
+    }, []);
     return (
         <div className={full ? 'workPage page full' : 'workPage page'}>
             <SEO title={`Work`} />
@@ -19,6 +26,7 @@ const WorkPage = ({ data }) => {
                     className="fullToggle"
                     onClick={() => {
                         toggleFull(full => !full);
+                        localStorage.setItem('full', !full);
                     }}
                 >
                     <Icon className="icon" icon={full ? exitIcon : fullIcon} />

@@ -17,9 +17,7 @@
     --shadow-color: rgba(218, 144, 147);
     --shadow-color-3: rgba(218, 144, 147, 0.3);
     --background-color: var(--dark-color);
-    --box-shadow: 0.2rem 0.2rem 0.6rem var(--shadow-color);
-    --blog-shadow: 0rem 0rem 0rem 0.2rem var(--shadow-color);
-    --work-shadow: 0rem 0rem 2rem var(--shadow-color);
+    --box-shadow: 0.2rem 0.2rem 0.6rem grey;
 }
 
 *::-webkit-scrollbar {
@@ -43,7 +41,7 @@
 }
 
 :focus {
-    box-shadow: 0 0 0 1px var(--shadow-color);
+    // box-shadow: 0 0 0 1px var(--shadow-color);
 }
 
 html {
@@ -56,7 +54,7 @@ a {
     margin: 0;
     text-decoration: none;
     cursor: pointer;
-    color: var(--dark-color);
+    color: var(--light-color);
     &:hover {
         color: var(--shadow-color);
     }
@@ -79,6 +77,11 @@ body {
 @font-face {
     font-family: 'Consolas';
     src: url('../fonts/Consolas.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Helvetica';
+    src: url('../fonts/Helvetica.woff2') format('woff2');
 }
 
 

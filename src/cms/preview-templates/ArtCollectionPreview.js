@@ -13,6 +13,7 @@ const ArtCollectionPreview = ({ entry, widgetFor }) => {
             tags={tags && tags.toJS()}
             title={entry.getIn(['data', 'title'])}
             description={entry.getIn(['data', 'description'])}
+            preview={true}
         />
     );
 };

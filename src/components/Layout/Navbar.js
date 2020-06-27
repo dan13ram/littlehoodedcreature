@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { applyTheme } from '../../utils/Theme';
 import useSiteMetadata from '../SiteMetadata';
@@ -20,11 +20,21 @@ const Navbar = ({ title }) => {
     const [open, toggleOpen] = useState(false);
     const [currentTheme, setTheme] = React.useState('light');
     const [theme, toggleTheme] = React.useState(false);
+    useEffect(() => {
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            toggleTheme(theme => currentTheme !== 'light');
+            setTheme(currentTheme);
+            applyTheme(currentTheme);
+            localStorage.setItem('theme', currentTheme);
+        }
+    }, []);
     const changeTheme = () => {
         toggleTheme(theme => !theme);
         const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
         setTheme(nextTheme);
         applyTheme(nextTheme);
+        localStorage.setItem('theme', nextTheme);
     };
 
     return (
@@ -46,13 +56,13 @@ const Navbar = ({ title }) => {
                     toggleOpen(open => false);
                 }}
             >
-                <AniLink fade className="navItem" to={`/work`}>
+                <AniLink fade className="navItem" id="workSvg" to={`/work`}>
                     <Work className="navSvg" />
                 </AniLink>
                 <AniLink fade className="navItem" id="blogSvg" to={`/blog`}>
                     <Blog className="navSvg" />
                 </AniLink>
-                <AniLink fade className="navItem" to={`/about`}>
+                <AniLink fade className="navItem" id="aboutSvg" to={`/about`}>
                     <About className="navSvg" />
                 </AniLink>
             </div>
@@ -60,7 +70,7 @@ const Navbar = ({ title }) => {
                 <label className="switch">
                     <input
                         type="checkbox"
-                        defaultChecked={theme}
+                        checked={theme}
                         onChange={changeTheme}
                     />
                     <span className="slider round"></span>

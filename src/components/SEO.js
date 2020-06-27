@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import useSiteMetadata from './SiteMetadata';
 import { Helmet } from 'react-helmet';
-import logo from '../svg/logo.svg';
+import logo from '../../static/img/logo.png';
 import { withPrefix } from 'gatsby';
 
 const SEO = ({ description, lang, meta, title, titleTemplate }) => {
@@ -16,7 +16,7 @@ const SEO = ({ description, lang, meta, title, titleTemplate }) => {
             }}
             title={title}
             titleTemplate={titleTemplate || `%s | ${siteMetadata.title}`}
-            link={[{ rel: 'icon', type: 'image/svg+xml', href: logo }]}
+            link={[{ rel: 'icon', type: 'image/png', href: logo }]}
             meta={[
                 {
                     name: `description`,
@@ -64,7 +64,7 @@ const SEO = ({ description, lang, meta, title, titleTemplate }) => {
                 },
                 {
                     property: `og:image`,
-                    content: `${withPrefix(`/`)}img/logo.svg`,
+                    content: `${withPrefix(`/`)}img/logo.png`,
                 },
             ].concat(meta)}
         />
