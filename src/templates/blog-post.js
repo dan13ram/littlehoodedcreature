@@ -5,9 +5,8 @@ import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
+import EmblaCarousel from '../utils/EmblaCarousel';
 import '../scss/blogPost.scss';
-import Flickity from 'flickity';
-import 'flickity/css/flickity.css';
 
 export const BlogPostTemplate = ({
     content,
@@ -19,26 +18,15 @@ export const BlogPostTemplate = ({
     helmet,
 }) => {
     const headerRef = useRef(null);
-    const imagesRef = useRef(null);
     useEffect(() => {
-        window.setTimeout(() => {
+        setTimeout(() => {
             headerRef.current &&
                 headerRef.current.scrollIntoView({
                     behavior: 'auto',
                     block: 'end',
                 });
         }, 100);
-        if (featuredImages.length === 1) {
-            new Flickity(imagesRef.current, {
-                prevNextButtons: false,
-                pageDots: false,
-            });
-        } else {
-            new Flickity(imagesRef.current, {
-                adaptiveHeight: true
-            });
-        }
-    }, [featuredImages]);
+    }, []);
     const PostContent = contentComponent || Content;
 
     return (
@@ -46,20 +34,19 @@ export const BlogPostTemplate = ({
             {helmet || ''}
 
             <div className="blogImagesContainer">
-                <div className="blogImages main-carousel" ref={imagesRef}>
+                <EmblaCarousel className="blogImages">
                     {featuredImages &&
                         featuredImages.map(featuredImage => (
-                            <div className="carousel-cell" key={featuredImage.id}>
-                                <PreviewCompatibleImage
-                                    className="imageItem"
-                                    imageInfo={{
-                                        image: featuredImage.image,
-                                        alt: title,
-                                    }}
-                                />
-                            </div>
+                            <PreviewCompatibleImage
+                                key={featuredImage.id}
+                                className="imageItem"
+                                imageInfo={{
+                                    image: featuredImage.image,
+                                    alt: title,
+                                }}
+                            />
                         ))}
-                </div>
+                </EmblaCarousel>
             </div>
             <article className="container">
                 <header ref={headerRef}>
@@ -100,9 +87,6 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
     const { markdownRemark: post } = data;
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
 
     return (
         <BlogPostTemplate

@@ -7,7 +7,7 @@ featuredPost: true
 featuredImages:
   - image: /img/sixelements.webp
   - image: /img/foliage-collage/2/1.jpg
-  - image: /img/foliage-collage/2/3.jpg
+  - image: /img/trance.webp
 tags:
   - first
   - testing

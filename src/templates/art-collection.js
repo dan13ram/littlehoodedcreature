@@ -18,7 +18,7 @@ export const ArtCollectionTemplate = ({
     const [margin, setMargin] = useState({});
     const headerRef = useRef(null);
     useEffect(() => {
-        window.setTimeout(() => {
+        setTimeout(() => {
             headerRef.current &&
                 headerRef.current.scrollIntoView({
                     behavior: 'auto',
