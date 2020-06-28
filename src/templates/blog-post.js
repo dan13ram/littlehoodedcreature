@@ -25,7 +25,7 @@ export const BlogPostTemplate = ({
                     behavior: 'auto',
                     block: 'end',
                 });
-        }, 100);
+        }, 50);
     }, []);
     const PostContent = contentComponent || Content;
 

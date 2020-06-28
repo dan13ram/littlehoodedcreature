@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { applyTheme } from '../../utils/Theme';
 import useSiteMetadata from '../SiteMetadata';
+import WorkList from '../WorkList';
 import { ReactComponent as Logo } from '../../svg/logo.svg';
 import { ReactComponent as Work } from '../../svg/work.svg';
 import { ReactComponent as Blog } from '../../svg/blog.svg';
@@ -20,6 +21,11 @@ const Navbar = ({ title }) => {
     const [open, toggleOpen] = useState(false);
     const [currentTheme, setTheme] = React.useState('light');
     const [theme, toggleTheme] = React.useState(false);
+    const isActiveNavItem = ({ isCurrent }) => {
+        return isCurrent
+            ? { className: 'navItem active' }
+            : { className: 'navItem' };
+    };
     useEffect(() => {
         const currentTheme = localStorage.getItem('theme');
         if (currentTheme) {
@@ -56,13 +62,29 @@ const Navbar = ({ title }) => {
                     toggleOpen(open => false);
                 }}
             >
-                <AniLink fade className="navItem" id="workSvg" to={`/work`}>
+                <AniLink
+                    fade
+                    getProps={isActiveNavItem}
+                    id="workSvg"
+                    to={`/work`}
+                >
                     <Work className="navSvg" />
                 </AniLink>
-                <AniLink fade className="navItem" id="blogSvg" to={`/blog`}>
+                <WorkList />
+                <AniLink
+                    fade
+                    getProps={isActiveNavItem}
+                    id="blogSvg"
+                    to={`/blog`}
+                >
                     <Blog className="navSvg" />
                 </AniLink>
-                <AniLink fade className="navItem" id="aboutSvg" to={`/about`}>
+                <AniLink
+                    fade
+                    getProps={isActiveNavItem}
+                    id="aboutSvg"
+                    to={`/about`}
+                >
                     <About className="navSvg" />
                 </AniLink>
             </div>

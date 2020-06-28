@@ -17,6 +17,15 @@ export const ArtCollectionTemplate = ({
 }) => {
     const [margin, setMargin] = useState({});
     const headerRef = useRef(null);
+    const setHeaderMargin = mediaQuery => {
+        const offset = mediaQuery.matches ? '6.5rem' : '2.5rem';
+        setTimeout(() => {
+            headerRef.current &&
+                setMargin(margin => ({
+                    marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - ${offset})`,
+                }));
+        }, 50);
+    };
     useEffect(() => {
         setTimeout(() => {
             headerRef.current &&
@@ -24,11 +33,10 @@ export const ArtCollectionTemplate = ({
                     behavior: 'auto',
                     block: 'end',
                 });
-        }, 100);
-        headerRef.current &&
-            setMargin(margin => ({
-                marginTop: `calc(100vh - ${headerRef.current.offsetHeight}px - 2.5rem)`,
-            }));
+        }, 50);
+        const mediaQuery = matchMedia('(max-width: 40rem)');
+        setHeaderMargin(mediaQuery);
+        mediaQuery.addListener(setHeaderMargin);
     }, []);
     return (
         <PreviewCompatibleBackgroundImage
@@ -38,7 +46,7 @@ export const ArtCollectionTemplate = ({
             {helmet || ''}
 
             <article className="container" style={margin}>
-                <header ref={headerRef}>
+                <header ref={headerRef} id="articleHeader">
                     <h1>{title}</h1>
                     <p>{description}</p>
                 </header>
