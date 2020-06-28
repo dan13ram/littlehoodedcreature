@@ -5,7 +5,7 @@ import { graphql, Link } from 'gatsby';
 import SEO from '../components/SEO';
 import Content, { HTMLContent } from '../components/Content';
 import PreviewCompatibleImage from '../components/PreviewCompatibleImage';
-import EmblaCarousel from '../utils/EmblaCarousel';
+import EmblaCarousel from '../components/EmblaCarousel';
 import '../scss/blogPost.scss';
 
 export const BlogPostTemplate = ({

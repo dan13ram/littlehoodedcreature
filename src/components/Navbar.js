@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
-import { applyTheme } from '../../utils/Theme';
-import useSiteMetadata from '../SiteMetadata';
-import WorkList from '../WorkList';
-import { ReactComponent as Logo } from '../../svg/logo.svg';
-import { ReactComponent as Work } from '../../svg/work.svg';
-import { ReactComponent as Blog } from '../../svg/blog.svg';
-import { ReactComponent as About } from '../../svg/about.svg';
+import { applyTheme } from '../utils/Theme';
+import useSiteMetadata from '../utils/SiteMetadata';
+import WorkList from './WorkList';
+import { ReactComponent as Logo } from '../svg/logo.svg';
+import { ReactComponent as Work } from '../svg/work.svg';
+import { ReactComponent as Blog } from '../svg/blog.svg';
+import { ReactComponent as About } from '../svg/about.svg';
 
 import { Icon } from '@iconify/react';
 import instagramIcon from '@iconify/icons-ant-design/instagram-outlined';
 import vimeoIcon from '@iconify/icons-la/vimeo';
 import linkedinIcon from '@iconify/icons-la/linkedin-in';
 
-import '../../scss/navBar.scss';
-/* eslint-disable */
+import '../scss/navBar.scss';
 
 const Navbar = ({ title }) => {
-    const { author, social } = useSiteMetadata();
+    const { social } = useSiteMetadata();
     const [open, toggleOpen] = useState(false);
     const [currentTheme, setTheme] = React.useState('light');
     const [theme, toggleTheme] = React.useState(false);
