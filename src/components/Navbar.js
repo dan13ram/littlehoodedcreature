@@ -68,6 +68,7 @@ const Navbar = ({ title }) => {
                     to={`/work`}
                 >
                     <Work className="navSvg" />
+                    {/* <span className="workArrow" style={{position: "absolute"}}>{'\u25B6'} </span> */}
                 </AniLink>
                 <WorkList />
                 <AniLink

@@ -69,21 +69,55 @@ body {
     display: flex;
     position: relative;
     overflow-x: hidden;
-    font-family: 'Consolas';
+    font-family: 'Montserrat';
     color: var(--dark-color);
+    h1,
+    h4 {
+        font-family: 'Merriweather';
+    }
 }
 
 
+/* montserrat-regular - latin */
 @font-face {
-    font-family: 'Consolas';
-    src: url('../fonts/Consolas.woff2') format('woff2');
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/montserrat-v14-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Montserrat Regular'), local('Montserrat-Regular'),
+        url('../fonts/montserrat-v14-latin-regular.eot?#iefix')
+            format('embedded-opentype'),
+        /* IE6-IE8 */ url('../fonts/montserrat-v14-latin-regular.woff2')
+            format('woff2'),
+        /* Super Modern Browsers */
+            url('../fonts/montserrat-v14-latin-regular.woff') format('woff'),
+        /* Modern Browsers */ url('../fonts/montserrat-v14-latin-regular.ttf')
+            format('truetype'),
+        /* Safari, Android, iOS */
+            url('../fonts/montserrat-v14-latin-regular.svg#Montserrat')
+            format('svg'); /* Legacy iOS */
 }
 
+
+/* merriweather-regular - latin */
 @font-face {
-    font-family: 'Helvetica';
-    src: url('../fonts/Helvetica.woff2') format('woff2');
+    font-family: 'Merriweather';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/merriweather-v21-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local('Merriweather Regular'), local('Merriweather-Regular'),
+        url('../fonts/merriweather-v21-latin-regular.eot?#iefix')
+            format('embedded-opentype'),
+        /* IE6-IE8 */ url('../fonts/merriweather-v21-latin-regular.woff2')
+            format('woff2'),
+        /* Super Modern Browsers */
+            url('../fonts/merriweather-v21-latin-regular.woff') format('woff'),
+        /* Modern Browsers */ url('../fonts/merriweather-v21-latin-regular.ttf')
+            format('truetype'),
+        /* Safari, Android, iOS */
+            url('../fonts/merriweather-v21-latin-regular.svg#Merriweather')
+            format('svg'); /* Legacy iOS */
 }
-
 
 @keyframes wiggle {
     0% {
@@ -97,6 +131,27 @@ body {
     }
     60% {
         transform: rotate(5deg);
+    }
+    80% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes wiggleLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(5deg);
+    }
+    40% {
+        transform: rotate(-5deg);
+    }
+    60% {
+        transform: rotate(180deg);
     }
     80% {
         transform: rotate(-5deg);

@@ -13,9 +13,6 @@ tags:
   - illustration
   - book
 content:
-  - image: /img/parenting/building-the-right-connect.webp
-    title: PARENTING
-    description: ABSOLUTE
   - image: /img/parenting/carrot.webp
     title: PARENTING
     description: ABSOLUTE

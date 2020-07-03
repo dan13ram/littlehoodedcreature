@@ -47,13 +47,15 @@
             font-size: unquote('min(1.5vw, 1rem)');
             .itemTitle {
                 font-weight: bold;
+                font-family: 'Merriweather';
             }
             .itemDate {
+                font-size: 0.9rem;
                 text-transform: uppercase;
             }
         }
         .itemDescription {
-            font-family: 'Helvetica';
+            // font-family: 'Helvetica';
             flex: 1;
             background: var(--dark-color);
             z-index: 4;

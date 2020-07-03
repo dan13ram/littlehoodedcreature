@@ -9,16 +9,13 @@ tags:
   - illustration
   - book
 content:
-  - image: /img/portraits-of-intensity/nina.jpg
-    title: PORTRAIT
-    description: INTENSITY
-  - image: /img/portraits-of-intensity/nude-study-1.jpg
+  - image: /img/portraits-of-intensity/nude-study-2.jpg
     title: PORTRAIT
     description: INTENSITY
   - image: /img/portraits-of-intensity/janita.jpg
     title: PORTRAIT
     description: INTENSITY
-  - image: /img/portraits-of-intensity/nude-study-2.jpg
+  - image: /img/portraits-of-intensity/nude-study-1.jpg
     title: PORTRAIT
     description: INTENSITY
 year: 2019-20

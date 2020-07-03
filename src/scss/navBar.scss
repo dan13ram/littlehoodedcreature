@@ -48,7 +48,7 @@
         }
         &:hover {
             #logoSvg {
-                animation: wiggle 0.5s;
+                animation: wiggleLogo 0.5s;
                 path {
                     stroke: var(--shadow-color);
                     fill: var(--shadow-color);

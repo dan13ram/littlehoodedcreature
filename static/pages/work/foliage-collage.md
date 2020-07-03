@@ -15,9 +15,6 @@ tags:
   - collage
   - new
 content:
-  - image: /img/foliage-collage/2/1.jpg
-    title: FOLIAGE
-    description: COLLAGE
   - image: /img/foliage-collage/2/2.jpg
     title: FOLIAGE
     description: COLLAGE
