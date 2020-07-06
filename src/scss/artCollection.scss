@@ -14,7 +14,7 @@
         background: linear-gradient(
             to bottom,
             var(--dark-color),
-            var(--dark-color-8)
+            var(--dark-color-5)
         );
         width: 100%;
         max-width: 60rem;
@@ -29,10 +29,10 @@
         .content {
             // font-family: 'Helvetica';
             .contentItem {
-                margin: 0.5rem 0;
+                margin: 4rem 0;
             }
-            margin: 0.5rem;
-            width: calc(100% - 1rem);
+            margin: 4rem;
+            width: calc(100% - 8rem);
             p {
                 display: flex;
                 word-break: break-word;

@@ -22,32 +22,30 @@
             align-items: center;
         }
         .itemContent {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            bottom: 0;
             position: absolute;
             transition: all 0.25s ease-in-out;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            border-radius: 1rem;
-            width: 80%;
-            height: 80%;
+            width: 100%;
+            height: auto;
             padding: 0.5rem;
             opacity: 0;
             z-index: 1;
             background: var(--dark-color-8);
             color: var(--light-color);
             p {
+                margin: 0;
                 &.itemDate {
                     font-size: 0.75rem;
                 }
                 &.itemTitle{
                     font-family: 'Merriweather';
+                    margin-bottom: 0.5rem;
                 }
                 text-align: center;
-                margin: 0.5rem 0;
                 font-weight: bold;
             }
         }
